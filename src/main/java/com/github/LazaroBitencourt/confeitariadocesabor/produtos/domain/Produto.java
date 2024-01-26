@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -23,6 +24,8 @@ public class Produto {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
+    @NotNull
+    private LocalDate dataFabricacao;
     @NotNull
     private LocalDate validade;
     @NotNull
