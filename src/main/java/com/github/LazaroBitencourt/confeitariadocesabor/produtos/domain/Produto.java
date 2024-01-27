@@ -27,7 +27,7 @@ public class Produto {
     @NotNull
     private LocalDate dataFabricacao;
     @NotNull
-    private LocalDate validade;
+    private LocalDate dataValidade;
     @NotNull
     private Double preco;
 }
