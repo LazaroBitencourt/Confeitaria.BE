@@ -12,5 +12,5 @@ import javax.validation.Valid;
 public interface ProdutoAPI {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProdutoIdResponse cadastraNovoProduto (@RequestBody @Valid ProdutoRequest produtoRequest);
+    public ProdutoIdResponse postCadastraNovoProduto (@RequestBody @Valid ProdutoRequest produtoRequest);
 }
