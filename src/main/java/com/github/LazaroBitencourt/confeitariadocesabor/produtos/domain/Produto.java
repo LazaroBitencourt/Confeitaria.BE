@@ -1,13 +1,16 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.handler.APIException;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ProdutoRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -37,8 +40,15 @@ public class Produto {
         this.descricao = produtoRequest.getDescricao();
         this.categoria = produtoRequest.getCategoria();
         this.dataFabricacao = produtoRequest.getDataFabricacao();
-        this.dataValidade = produtoRequest.getDataValidade();
+        this.dataValidade = isDataValidadeValida(produtoRequest.getDataFabricacao(),produtoRequest.getDataValidade());
         this.preco = produtoRequest.getPreco();
+    }
+
+    private LocalDate isDataValidadeValida(LocalDate dataFabricacao, LocalDate dataValidade) {
+        if(dataValidade.isBefore(dataFabricacao)){
+            throw APIException.build(HttpStatus.BAD_REQUEST,"A DATA DE VALIDADE, NAO PODE SER INFERIOR A DATA DE FABRICACAO");
+        }
+        return dataValidade;
     }
 
 }
