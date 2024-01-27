@@ -4,5 +4,5 @@ import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
 
 public interface
 ProdutoRepository {
-    Produto save(Produto produto);
+    Produto save(Produto NovoProduto);
 }
