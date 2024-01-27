@@ -5,6 +5,7 @@ import lombok.Getter;
 
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -21,5 +22,6 @@ public class ProdutoRequest {
     @NotNull
     private LocalDate dataValidade;
     @NotNull
+    @PositiveOrZero(message = "O preço deve ser um valor não negativo.")
     private Double preco;
 }
