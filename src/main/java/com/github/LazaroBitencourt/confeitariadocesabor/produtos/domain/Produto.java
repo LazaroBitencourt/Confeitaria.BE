@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ProdutoRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,4 +31,13 @@ public class Produto {
     private LocalDate dataValidade;
     @NotNull
     private Double preco;
+
+    public Produto(ProdutoRequest produtoRequest) {
+        this.nome = produtoRequest.getNome();
+        this.descricao = produtoRequest.getDescricao();
+        this.categoria = produtoRequest.getCategoria();
+        this.dataFabricacao = produtoRequest.getDataFabricacao();
+        this.dataValidade = produtoRequest.getDataValidade();
+        this.preco = produtoRequest.getPreco();
+    }
 }
