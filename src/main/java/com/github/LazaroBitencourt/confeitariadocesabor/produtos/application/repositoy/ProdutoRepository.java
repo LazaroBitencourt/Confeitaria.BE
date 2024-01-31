@@ -7,5 +7,5 @@ import java.util.List;
 public interface ProdutoRepository {
     Produto save(Produto produto);
 
-    List<Produto> listaTodosProdutos();
+    List<Produto> buscaTodosProdutos();
 }
