@@ -25,7 +25,8 @@ public class ProdutoRestController implements ProdutoAPI{
     @Override
     public List<ListProdutosResponse> getListaTodosProdutos() {
         log.info("[inicia] ProdutoRestController - getBuscaTodosProdutos");
+        List<ListProdutosResponse> listaDeProdutos= service.listaTodosProdutos();
         log.info("[finaliza] ProdutoRestController - getBuscaTodosProdutos");
-        return null;
+        return listaDeProdutos;
     }
 }
