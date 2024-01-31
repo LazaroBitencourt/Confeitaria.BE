@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @Log4j2
@@ -18,5 +20,13 @@ public class ProdutoRestController implements ProdutoAPI{
         ProdutoIdResponse produto = service.cadastraNovoProduto(produtoRequest);
         log.info("[finaliza] ProdutoRestController - postCadastraNovoProduto");
         return produto;
+    }
+
+    @Override
+    public List<ListProdutosResponse> getListaTodosProdutos() {
+        log.info("[inicia] ProdutoRestController - getBuscaTodosProdutos");
+        List<ListProdutosResponse> listaDeProdutos= service.listaTodosProdutos();
+        log.info("[finaliza] ProdutoRestController - getBuscaTodosProdutos");
+        return listaDeProdutos;
     }
 }
