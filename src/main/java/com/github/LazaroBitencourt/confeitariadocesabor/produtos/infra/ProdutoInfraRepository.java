@@ -46,4 +46,11 @@ public class ProdutoInfraRepository implements ProdutoRepository {
         log.info("[finaliza] ProdutoInfraRepository - buscaPorId");
         return produto;
     }
+
+    @Override
+    public void deletaProdutoPorId(Long id) {
+        log.info("[inicia] ProdutoInfraRepository - deletaProdutoPorId");
+        jpaRepository.deleteById(id);
+        log.info("[finaliza] ProdutoInfraRepository - deletaProdutoPorId");
+    }
 }
