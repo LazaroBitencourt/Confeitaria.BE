@@ -13,4 +13,6 @@ public interface ProdutoService {
     List<ListProdutosResponse> listaTodosProdutos();
 
     DetalhaProdutoResponse DetalhaProduto(Long id);
+
+    void deletaProdutoPorId(Long id);
 }
