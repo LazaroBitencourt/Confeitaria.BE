@@ -38,7 +38,7 @@ public class ProdutoInfraRepository implements ProdutoRepository {
     }
 
     @Override
-    public Produto buscaPorId(Long id) {
+    public Produto buscaProdutoPorId(Long id) {
         log.info("[inicia] ProdutoInfraRepository - buscaPorId");
         Produto produto = jpaRepository.findById(id).orElseThrow(()
                 -> APIException.build(HttpStatus.NOT_FOUND, "PRODUTO NAO ENCONTRADO OU " +

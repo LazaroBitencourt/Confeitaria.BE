@@ -9,5 +9,5 @@ public interface ProdutoRepository {
 
     List<Produto> buscaTodosProdutos();
 
-    Produto buscaPorId(Long id);
+    Produto buscaProdutoPorId(Long id);
 }

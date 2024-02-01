@@ -34,7 +34,7 @@ public class ProdutoApplicationService implements ProdutoService{
     @Override
     public DetalhaProdutoResponse DetalhaProduto(Long id) {
         log.info("[inicia] ProdutoApplicationService - DetalhaProduto");
-        Produto produto = repository.buscaPorId(id);
+        Produto produto = repository.buscaProdutoPorId(id);
         log.info("[finaliza] ProdutoApplicationService - DetalhaProduto");
         return new DetalhaProdutoResponse(produto);
     }
