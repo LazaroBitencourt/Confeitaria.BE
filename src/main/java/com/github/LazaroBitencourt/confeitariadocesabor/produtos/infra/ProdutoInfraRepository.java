@@ -36,4 +36,14 @@ public class ProdutoInfraRepository implements ProdutoRepository {
         log.info("[finaliza] ProdutoInfraRepository - buscaTodosProdutos");
         return produtos;
     }
+
+    @Override
+    public Produto buscaProdutoPorId(Long id) {
+        log.info("[inicia] ProdutoInfraRepository - buscaPorId");
+        Produto produto = jpaRepository.findById(id).orElseThrow(()
+                -> APIException.build(HttpStatus.NOT_FOUND, "PRODUTO NAO ENCONTRADO OU " +
+                "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!"));
+        log.info("[finaliza] ProdutoInfraRepository - buscaPorId");
+        return produto;
+    }
 }

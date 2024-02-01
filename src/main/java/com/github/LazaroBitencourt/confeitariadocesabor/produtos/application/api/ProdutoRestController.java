@@ -29,4 +29,12 @@ public class ProdutoRestController implements ProdutoAPI{
         log.info("[finaliza] ProdutoRestController - getBuscaTodosProdutos");
         return listaDeProdutos;
     }
+
+    @Override
+    public DetalhaProdutoResponse getDetalhaProduto(Long id) {
+        log.info("[inicia] ProdutoRestController - getDetalhaProduto");
+        DetalhaProdutoResponse produto = service.DetalhaProduto(id);
+        log.info("[finaliza] ProdutoRestController - getDetalhaProduto");
+        return produto;
+    }
 }
