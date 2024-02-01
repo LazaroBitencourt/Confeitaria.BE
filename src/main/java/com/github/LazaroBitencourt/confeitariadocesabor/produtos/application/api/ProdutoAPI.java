@@ -15,4 +15,8 @@ public interface ProdutoAPI {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<ListProdutosResponse> getListaTodosProdutos();
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public DetalhaProdutoResponse getDetalhaProduto(@PathVariable("id") Long id);
 }
