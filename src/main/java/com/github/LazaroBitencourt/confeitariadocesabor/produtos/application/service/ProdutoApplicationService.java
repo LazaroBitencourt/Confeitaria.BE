@@ -1,8 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.service;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ListProdutosResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ProdutoIdResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ProdutoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.*;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.repositoy.ProdutoRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
 import lombok.RequiredArgsConstructor;
@@ -31,5 +29,13 @@ public class ProdutoApplicationService implements ProdutoService{
         List<Produto> produtos = repository.buscaTodosProdutos();
         log.info("[finaliza] ProdutoApplicationService - listaTodosProdutos");
         return ListProdutosResponse.converte(produtos);
+    }
+
+    @Override
+    public DetalhaProdutoResponse DetalhaProduto(Long id) {
+        log.info("[inicia] ProdutoApplicationService - DetalhaProduto");
+        Produto produto = repository.buscaPorId(id);
+        log.info("[finaliza] ProdutoApplicationService - DetalhaProduto");
+        return new DetalhaProdutoResponse(produto);
     }
 }
