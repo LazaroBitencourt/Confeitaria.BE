@@ -8,4 +8,6 @@ public interface ProdutoRepository {
     Produto save(Produto produto);
 
     List<Produto> buscaTodosProdutos();
+
+    Produto buscaPorId(Long id);
 }
