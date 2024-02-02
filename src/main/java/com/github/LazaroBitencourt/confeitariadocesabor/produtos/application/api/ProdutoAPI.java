@@ -19,4 +19,9 @@ public interface ProdutoAPI {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public DetalhaProdutoResponse getDetalhaProduto(@PathVariable("id") Long id);
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletaProdutoPorId (@PathVariable("id") Long id);
+
 }

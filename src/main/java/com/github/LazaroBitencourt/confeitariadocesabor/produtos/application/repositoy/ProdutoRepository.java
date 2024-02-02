@@ -10,4 +10,6 @@ public interface ProdutoRepository {
     List<Produto> buscaTodosProdutos();
 
     Produto buscaProdutoPorId(Long id);
+
+    void deletaProdutoPorId(Long id);
 }
