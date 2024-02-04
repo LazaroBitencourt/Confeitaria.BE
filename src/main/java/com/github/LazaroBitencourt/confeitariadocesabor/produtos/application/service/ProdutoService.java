@@ -1,9 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.service;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.DetalhaProdutoResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ListProdutosResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ProdutoIdResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.ProdutoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.api.*;
 
 import java.util.List;
 
@@ -15,4 +12,6 @@ public interface ProdutoService {
     DetalhaProdutoResponse DetalhaProduto(Long id);
 
     void deletaProdutoPorId(Long id);
+
+    void alteraInformacoesProduto(Long id, AlteraProdutoRequest alteraProdutoRequest);
 }
