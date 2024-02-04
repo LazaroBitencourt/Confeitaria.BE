@@ -52,6 +52,7 @@ public class ProdutoApplicationService implements ProdutoService{
         log.info("[inicia] ProdutoApplicationService - alteraInformacoesProduto");
         Produto produto = repository.buscaProdutoPorId(id);
         produto.alteraInformacoesProduto(informacoesProduto);
+        repository.save(produto);
         log.info("[finaliza] ProdutoApplicationService - alteraInformacoesProduto");
     }
 }

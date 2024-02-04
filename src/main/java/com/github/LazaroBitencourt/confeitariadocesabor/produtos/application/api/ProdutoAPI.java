@@ -26,6 +26,5 @@ public interface ProdutoAPI {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void  putchAlteraInformacoesProduto(@PathVariable Long id, @RequestBody AlteraProdutoRequest alteraProdutoRequest);
-
+    public void putchAlteraInformacoesProduto(@PathVariable Long id, @RequestBody AlteraProdutoRequest alteraProdutoRequest);
 }

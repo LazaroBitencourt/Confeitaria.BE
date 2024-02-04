@@ -5,6 +5,7 @@ import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
 import lombok.Getter;
 
 import java.time.LocalDate;
+
 @Getter
 public class DetalhaProdutoResponse {
     private String nome;
