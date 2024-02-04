@@ -46,4 +46,12 @@ public class ProdutoApplicationService implements ProdutoService{
         repository.deletaProdutoPorId(id);
         log.info("[finaliza] ProdutoApplicationService - deletaProdutoPorId");
     }
+
+    @Override
+    public void alteraInformacoesProduto(Long id, AlteraProdutoRequest informacoesProduto) {
+        log.info("[inicia] ProdutoApplicationService - alteraInformacoesProduto");
+        Produto produto = repository.buscaProdutoPorId(id);
+        produto.alteraInformacoesProduto(informacoesProduto);
+        log.info("[finaliza] ProdutoApplicationService - alteraInformacoesProduto");
+    }
 }
