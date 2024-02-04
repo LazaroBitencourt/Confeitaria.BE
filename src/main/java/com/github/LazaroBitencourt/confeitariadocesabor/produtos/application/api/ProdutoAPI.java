@@ -24,4 +24,7 @@ public interface ProdutoAPI {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletaProdutoPorId (@PathVariable("id") Long id);
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void putAlteraInformacoesProduto(@PathVariable Long id, @RequestBody AlteraInformacoesProdutoRequest alteraInformacoesProdutoRequest);
 }
