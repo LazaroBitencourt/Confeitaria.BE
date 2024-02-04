@@ -44,4 +44,11 @@ public class ProdutoRestController implements ProdutoAPI{
         service.deletaProdutoPorId(id);
         log.info("[finaliza] ProdutoRestController - deletaProdutoPorId");
     }
+
+    @Override
+    public void putAlteraInformacoesProduto(Long id, AlteraInformacoesProdutoRequest alteraInformacoesProdutoRequest) {
+        log.info("[inicia] ProdutoRestController - putAlteraInformacoesProduto");
+        service.alteraInformacoesProduto(id, alteraInformacoesProdutoRequest);
+        log.info("[finaliza] ProdutoRestController - putAlteraInformacoesProduto");
+    }
 }
