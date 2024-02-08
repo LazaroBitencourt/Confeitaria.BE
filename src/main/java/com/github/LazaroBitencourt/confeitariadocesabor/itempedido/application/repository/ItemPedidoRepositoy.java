@@ -4,5 +4,5 @@ import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.a
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
 
 public interface ItemPedidoRepositoy {
-    ItemPedido salva(ItemPedidoRequest novoItemPedido);
+    ItemPedido salva(ItemPedido itemPedido);
 }
