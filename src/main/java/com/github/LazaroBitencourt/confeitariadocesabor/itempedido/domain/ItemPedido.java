@@ -1,4 +1,4 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.domain;
+package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
 import lombok.AllArgsConstructor;
