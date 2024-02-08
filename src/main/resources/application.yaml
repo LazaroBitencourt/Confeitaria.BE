@@ -1,6 +1,6 @@
 server:
   servlet:
-    context-path: /api/confeitaria
+    context-path: /api/confeitaria/v1
 
 spring:
   h2:
