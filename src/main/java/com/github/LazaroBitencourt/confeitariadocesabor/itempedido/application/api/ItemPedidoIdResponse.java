@@ -6,5 +6,6 @@ import lombok.Value;
 @Builder
 @Value
 public class ItemPedidoIdResponse {
+
     private Long idItemPedido;
 }
