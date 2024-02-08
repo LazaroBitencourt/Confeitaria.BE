@@ -18,7 +18,7 @@ public class ItemPedidoApplicationService implements ItemProdutoService{
     @Override
     public ItemPedidoIdResponse cadastraItemPedido(ItemPedidoRequest novoItemPedido) {
         log.info("[inicia] ItemPedidoApplicationService - cadastraItemPedido");
-        ItemPedido itemPedido = repositoy.salva(novoItemPedido);
+        ItemPedido itemPedido = repositoy.salva(new ItemPedido(novoItemPedido));
         log.info("[finaliza] ItemPedidoApplicationService - cadastraItemPedido");
         return ItemPedidoIdResponse.builder().idItemPedido(itemPedido.getIdItemPedido()).build();
     }
