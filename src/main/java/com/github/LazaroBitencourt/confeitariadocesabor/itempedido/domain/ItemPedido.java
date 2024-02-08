@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,4 +25,10 @@ public class ItemPedido {
     private Produto idProduto;
     @NotNull
     private int quantidade;
+
+    public ItemPedido(ItemPedidoRequest novoItemPedido) {
+        this.idProduto = novoItemPedido.getIdProduto();
+        this.quantidade = novoItemPedido.getQuantidade();
+    }
+
 }
