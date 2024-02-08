@@ -15,8 +15,8 @@ public class ItemPedidoRestController implements ItemPedidoAPI{
     @Override
     public ItemPedidoIdResponse postCastraItemPedido(ItemPedidoRequest itemPedidoRequest) {
         log.info("[inicia] ItemPedidoRestController - postCastraItemPedido");
-        service.cadastraItemPedido(itemPedidoRequest);
+        ItemPedidoIdResponse itemPedidoIdResponse= service.cadastraItemPedido(itemPedidoRequest);
         log.info("[finaliza] ItemPedidoRestController - postCastraItemPedido");
-        return null;
+        return itemPedidoIdResponse;
     }
 }
