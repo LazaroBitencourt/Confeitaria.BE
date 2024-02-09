@@ -4,6 +4,7 @@ import com.github.LazaroBitencourt.confeitariadocesabor.handler.APIException;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.repository.ItemPedidoRepositoy;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
+import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
