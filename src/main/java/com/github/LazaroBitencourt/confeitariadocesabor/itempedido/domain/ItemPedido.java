@@ -26,9 +26,12 @@ public class ItemPedido {
     @NotNull
     private int quantidade;
 
-    public ItemPedido(ItemPedidoRequest novoItemPedido) {
-        this.idProduto = novoItemPedido.getIdProduto();
-        this.quantidade = novoItemPedido.getQuantidade();
+    public ItemPedido(Produto produto, int quantidade) {
+        this.idProduto = produto;
+        this.quantidade = quantidade;
+
     }
 
+
 }
+
