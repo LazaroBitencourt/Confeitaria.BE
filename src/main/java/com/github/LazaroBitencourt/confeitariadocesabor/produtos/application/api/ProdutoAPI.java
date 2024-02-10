@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@RequestMapping("/v1/produto")
+@RequestMapping("/produto")
 public interface ProdutoAPI {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
