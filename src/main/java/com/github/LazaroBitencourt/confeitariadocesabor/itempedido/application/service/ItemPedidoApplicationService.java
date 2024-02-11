@@ -16,14 +16,14 @@ import org.springframework.stereotype.Service;
 @Log4j2
 public class ItemPedidoApplicationService implements ItemProdutoService{
 
-    private final ItemPedidoRepositoy repositoy;
+    private final ItemPedidoRepositoy repository;
     private final ProdutoRepository produtoRepository;
 
     @Override
     public ItemPedidoIdResponse cadastraItemPedido(ItemPedidoRequest novoItemPedido) {
         log.info("[inicia] ItemPedidoApplicationService - cadastraItemPedido");
         Produto produto = produtoRepository.buscaProdutoPorId(novoItemPedido.getIdProduto());
-        ItemPedido itemPedido = repositoy.salva(new ItemPedido(produto,novoItemPedido.getQuantidade()));
+        ItemPedido itemPedido = repository.salva(new ItemPedido(produto,novoItemPedido.getQuantidade()));
         log.info("[finaliza] ItemPedidoApplicationService - cadastraItemPedido");
         return ItemPedidoIdResponse.builder().idItemPedido(itemPedido.getIdItemPedido()).build();
     }
@@ -31,7 +31,7 @@ public class ItemPedidoApplicationService implements ItemProdutoService{
     @Override
     public ItemPedidoResponse buscaItemPedidoPorId(Long id) {
         log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
-        ItemPedido itemPedido = repositoy.buscaItemPedidoPorId(id);
+        ItemPedido itemPedido = repository.buscaItemPedidoPorId(id);
         ItemPedidoResponse itemPedidoResponse = ItemPedidoResponse.builder()
                 .idProduto(itemPedido.getProduto().getIdProduto())
                 .quantidade(itemPedido.getQuantidade())
