@@ -2,7 +2,10 @@ package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.
 
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoResponse;
 
 public interface ItemProdutoService {
     ItemPedidoIdResponse cadastraItemPedido(ItemPedidoRequest itemPedidoRequest);
+
+    ItemPedidoResponse buscaItemPedidoPorId(Long id);
 }
