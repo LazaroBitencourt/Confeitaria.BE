@@ -32,7 +32,11 @@ public class ItemPedidoApplicationService implements ItemProdutoService{
     public ItemPedidoResponse buscaItemPedidoPorId(Long id) {
         log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
         ItemPedido itemPedido = repositoy.buscaItemPedidoPorId(id);
-        log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
-        return new ItemPedidoResponse(itemPedido.getProduto().getIdProduto(),itemPedido.getQuantidade());
+        ItemPedidoResponse itemPedidoResponse = ItemPedidoResponse.builder()
+                .idProduto(itemPedido.getProduto().getIdProduto())
+                .quantidade(itemPedido.getQuantidade())
+                .build();
+        log.info("[finaliza] ItemPedidoApplicationService - buscaItemPedidoPorId");
+        return itemPedidoResponse;
     }
 }
