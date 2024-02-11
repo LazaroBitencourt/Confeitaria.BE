@@ -22,12 +22,12 @@ public class ItemPedido {
     private Long idItemPedido;
     @OneToOne
     @JoinColumn( name = "produto_id", nullable = false, updatable = false)
-    private Produto idProduto;
+    private Produto produto;
     @NotNull
     private int quantidade;
 
     public ItemPedido(Produto produto, int quantidade) {
-        this.idProduto = produto;
+        this.produto = produto;
         this.quantidade = quantidade;
 
     }
