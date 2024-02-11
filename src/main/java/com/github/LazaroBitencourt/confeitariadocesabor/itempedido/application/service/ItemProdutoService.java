@@ -7,5 +7,7 @@ import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.a
 public interface ItemProdutoService {
     ItemPedidoIdResponse cadastraItemPedido(ItemPedidoRequest itemPedidoRequest);
 
-    ItemPedidoResponse buscaItemPedidoPorId(Long id);
+    ItemPedidoResponse buscaItemPedidoPorId(Long idItemProduto);
+
+    void deletaItemPedidoPorId(Long idItemProduto);
 }
