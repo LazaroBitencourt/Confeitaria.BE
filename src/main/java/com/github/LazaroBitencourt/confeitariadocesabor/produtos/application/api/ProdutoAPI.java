@@ -22,6 +22,6 @@ public interface ProdutoAPI {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deletaProdutoPorId (@PathVariable("id") Long id);
+    public void deleteProdutoPorId (@PathVariable("id") Long id);
 
 }
