@@ -17,7 +17,7 @@ import java.time.LocalDate;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "Long", name = "produto_id", unique = true, updatable = false)
+    @Column(columnDefinition = "BIGINT", name = "produto_id", unique = true, updatable = false)
     private Long idProduto;
     @NotBlank(message = "Deve conter o nome do produto")
     private String nome;
