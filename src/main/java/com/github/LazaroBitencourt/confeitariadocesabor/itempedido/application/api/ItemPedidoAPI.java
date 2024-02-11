@@ -15,9 +15,9 @@ public interface ItemPedidoAPI {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ItemPedidoResponse getBuscaItemPedidoPorId(@PathVariable Long idItemProduto);
+    public ItemPedidoResponse getBuscaItemPedidoPorId(@PathVariable("id") Long idItemProduto);
 
-    @DeleteMapping("/id")
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteItemPedidoPorId(@PathVariable("id") Long idItemProduto);
 }
