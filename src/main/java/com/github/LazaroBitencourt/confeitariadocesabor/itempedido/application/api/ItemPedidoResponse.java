@@ -1,10 +1,16 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
+import lombok.Builder;
 import lombok.Getter;
 
+@Builder
 @Getter
 public class ItemPedidoResponse {
-    private Produto idProduto;
+    private Long idProduto;
     private int quantidade;
+
+    public ItemPedidoResponse(Long idProduto, int quantidade) {
+        this.idProduto = idProduto;
+        this.quantidade = quantidade;
+    }
 }

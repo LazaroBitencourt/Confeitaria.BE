@@ -2,6 +2,7 @@ package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.
 
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.repository.ItemPedidoRepositoy;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.repositoy.ProdutoRepository;
@@ -25,5 +26,13 @@ public class ItemPedidoApplicationService implements ItemProdutoService{
         ItemPedido itemPedido = repositoy.salva(new ItemPedido(produto,novoItemPedido.getQuantidade()));
         log.info("[finaliza] ItemPedidoApplicationService - cadastraItemPedido");
         return ItemPedidoIdResponse.builder().idItemPedido(itemPedido.getIdItemPedido()).build();
+    }
+
+    @Override
+    public ItemPedidoResponse buscaItemPedidoPorId(Long id) {
+        log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
+        ItemPedido itemPedido = repositoy.buscaItemPedidoPorId(id);
+        log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
+        return new ItemPedidoResponse(itemPedido.getProduto().getIdProduto(),itemPedido.getQuantidade());
     }
 }
