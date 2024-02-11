@@ -13,10 +13,18 @@ public class ItemPedidoRestController implements ItemPedidoAPI{
     private final ItemProdutoService service;
 
     @Override
-    public ItemPedidoIdResponse postCastraItemPedido(ItemPedidoRequest itemPedidoRequest) {
-        log.info("[inicia] ItemPedidoRestController - postCastraItemPedido");
+    public ItemPedidoIdResponse postCadastraItemPedido(ItemPedidoRequest itemPedidoRequest) {
+        log.info("[inicia] ItemPedidoRestController - postCadastraItemPedido");
         ItemPedidoIdResponse itemPedidoIdResponse= service.cadastraItemPedido(itemPedidoRequest);
-        log.info("[finaliza] ItemPedidoRestController - postCastraItemPedido");
+        log.info("[finaliza] ItemPedidoRestController - postCadastraItemPedido");
         return itemPedidoIdResponse;
+    }
+
+    @Override
+    public ItemPedidoResponse getBuscaItemPedidoPorId(Long id) {
+        log.info("[inicia] ItemPedidoRestController - getBuscaItemPedidoPorId");
+        ItemPedidoResponse itemPedidoResponse = service.buscaItemPedidoPorId(id);
+        log.info("[finaliza] ItemPedidoRestController - getBuscaItemPedidoPorId");
+        return itemPedidoResponse;
     }
 }
