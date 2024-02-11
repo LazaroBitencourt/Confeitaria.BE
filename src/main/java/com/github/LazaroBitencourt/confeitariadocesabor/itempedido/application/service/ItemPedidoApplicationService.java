@@ -2,6 +2,7 @@ package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.
 
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.repository.ItemPedidoRepositoy;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.repositoy.ProdutoRepository;
@@ -15,15 +16,27 @@ import org.springframework.stereotype.Service;
 @Log4j2
 public class ItemPedidoApplicationService implements ItemProdutoService{
 
-    private final ItemPedidoRepositoy repositoy;
+    private final ItemPedidoRepositoy repository;
     private final ProdutoRepository produtoRepository;
 
     @Override
     public ItemPedidoIdResponse cadastraItemPedido(ItemPedidoRequest novoItemPedido) {
         log.info("[inicia] ItemPedidoApplicationService - cadastraItemPedido");
         Produto produto = produtoRepository.buscaProdutoPorId(novoItemPedido.getIdProduto());
-        ItemPedido itemPedido = repositoy.salva(new ItemPedido(produto,novoItemPedido.getQuantidade()));
+        ItemPedido itemPedido = repository.salva(new ItemPedido(produto,novoItemPedido.getQuantidade()));
         log.info("[finaliza] ItemPedidoApplicationService - cadastraItemPedido");
         return ItemPedidoIdResponse.builder().idItemPedido(itemPedido.getIdItemPedido()).build();
+    }
+
+    @Override
+    public ItemPedidoResponse buscaItemPedidoPorId(Long id) {
+        log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
+        ItemPedido itemPedido = repository.buscaItemPedidoPorId(id);
+        ItemPedidoResponse itemPedidoResponse = ItemPedidoResponse.builder()
+                .idProduto(itemPedido.getProduto().getIdProduto())
+                .quantidade(itemPedido.getQuantidade())
+                .build();
+        log.info("[finaliza] ItemPedidoApplicationService - buscaItemPedidoPorId");
+        return itemPedidoResponse;
     }
 }

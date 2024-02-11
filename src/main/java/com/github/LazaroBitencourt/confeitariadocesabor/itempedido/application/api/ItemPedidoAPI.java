@@ -11,5 +11,9 @@ public interface ItemPedidoAPI {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ItemPedidoIdResponse postCastraItemPedido(@RequestBody @Valid  ItemPedidoRequest itemPedidoRequest);
+    public ItemPedidoIdResponse postCadastraItemPedido(@RequestBody @Valid  ItemPedidoRequest itemPedidoRequest);
+
+    @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public ItemPedidoResponse getBuscaItemPedidoPorId(@PathVariable Long id);
 }
