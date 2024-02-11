@@ -21,10 +21,17 @@ public class ItemPedidoRestController implements ItemPedidoAPI{
     }
 
     @Override
-    public ItemPedidoResponse getBuscaItemPedidoPorId(Long id) {
+    public ItemPedidoResponse getBuscaItemPedidoPorId(Long idItemProduto) {
         log.info("[inicia] ItemPedidoRestController - getBuscaItemPedidoPorId");
-        ItemPedidoResponse itemPedidoResponse = service.buscaItemPedidoPorId(id);
+        ItemPedidoResponse itemPedidoResponse = service.buscaItemPedidoPorId(idItemProduto);
         log.info("[finaliza] ItemPedidoRestController - getBuscaItemPedidoPorId");
         return itemPedidoResponse;
+    }
+
+    @Override
+    public void deleteItemPedidoPorId(Long idItemProduto) {
+        log.info("[inicia] ItemPedidoRestController - deleteItemPedidoPorId");
+        service.deletaItemPedidoPorId(idItemProduto);
+        log.info("[finaliza] ItemPedidoRestController - deleteItemPedidoPorId");
     }
 }
