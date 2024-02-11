@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class ItemPedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "item_pedido_id")
+    @Column(columnDefinition = "BIGINT", name = "item_pedido_id",unique = true, updatable = false)
     private Long idItemPedido;
     @OneToOne
     @JoinColumn( name = "produto_id", nullable = false, updatable = false)
