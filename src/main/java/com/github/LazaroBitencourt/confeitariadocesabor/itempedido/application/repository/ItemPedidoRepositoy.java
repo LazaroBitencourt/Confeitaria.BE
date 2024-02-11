@@ -5,5 +5,6 @@ import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPe
 public interface ItemPedidoRepositoy {
 
     ItemPedido salva(ItemPedido itemPedido);
-    
+
+    ItemPedido buscaItemPedidoPorId(Long id);
 }
