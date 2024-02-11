@@ -29,14 +29,22 @@ public class ItemPedidoApplicationService implements ItemProdutoService{
     }
 
     @Override
-    public ItemPedidoResponse buscaItemPedidoPorId(Long id) {
+    public ItemPedidoResponse buscaItemPedidoPorId(Long idItemProduto) {
         log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
-        ItemPedido itemPedido = repository.buscaItemPedidoPorId(id);
+        ItemPedido itemPedido = repository.buscaItemPedidoPorId(idItemProduto);
         ItemPedidoResponse itemPedidoResponse = ItemPedidoResponse.builder()
                 .idProduto(itemPedido.getProduto().getIdProduto())
                 .quantidade(itemPedido.getQuantidade())
                 .build();
         log.info("[finaliza] ItemPedidoApplicationService - buscaItemPedidoPorId");
         return itemPedidoResponse;
+    }
+
+    @Override
+    public void deletaItemPedidoPorId(Long idItemProduto) {
+        log.info("[inicia] ItemPedidoApplicationService - deletaItemPedidoPorId");
+        repository.buscaItemPedidoPorId(idItemProduto);
+        repository.deletaItemPedidoPorId(idItemProduto);
+        log.info("[finaliza] ItemPedidoApplicationService - deletaItemPedidoPorId");
     }
 }

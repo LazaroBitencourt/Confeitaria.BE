@@ -6,5 +6,7 @@ public interface ItemPedidoRepositoy {
 
     ItemPedido salva(ItemPedido itemPedido);
 
-    ItemPedido buscaItemPedidoPorId(Long id);
+    ItemPedido buscaItemPedidoPorId(Long idItemProduto);
+
+    void deletaItemPedidoPorId(Long idItemProduto);
 }

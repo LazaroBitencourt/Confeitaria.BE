@@ -31,12 +31,19 @@ public class ItemPedidoJpaRepository implements ItemPedidoRepositoy {
     }
 
     @Override
-    public ItemPedido buscaItemPedidoPorId(Long id) {
+    public ItemPedido buscaItemPedidoPorId(Long idItemProduto) {
         log.info("[inicia] ItemPedidoJpaRepository - buscaItemPedidoPorId");
-        ItemPedido itemPedido = jpaRepository.findById(id).orElseThrow(()
+        ItemPedido itemPedido = jpaRepository.findById(idItemProduto).orElseThrow(()
         -> APIException.build(HttpStatus.NOT_FOUND, "ITEM DE PEDIDO NAO ENCONTRADO OU " +
                 "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!"));
         log.info("[finaliza] ItemPedidoJpaRepository - buscaItemPedidoPorId");
         return itemPedido;
+    }
+
+    @Override
+    public void deletaItemPedidoPorId(Long idItemProduto) {
+        log.info("[inicia] ItemPedidoJpaRepository - deletaItemPedidoPorId");
+        jpaRepository.deleteById(idItemProduto);
+        log.info("[finaliza] ItemPedidoJpaRepository - deletaItemPedidoPorId");
     }
 }
