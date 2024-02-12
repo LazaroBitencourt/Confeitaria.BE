@@ -28,6 +28,8 @@ public class Endereco {
     private String numero;
     @NotBlank
     private String bairro;
+    @Column(insertable = false)
+    private String complemento;
     @NotBlank
     private String cep;
 
@@ -36,6 +38,7 @@ public class Endereco {
         this.logadouro = enderecoRequest.getLogadouro();
         this.numero = enderecoRequest.getNumero();
         this.bairro = enderecoRequest.getBairro();
+        this.complemento = enderecoRequest.getComplemento();
         this.cep = enderecoRequest.getCep();
     }
 

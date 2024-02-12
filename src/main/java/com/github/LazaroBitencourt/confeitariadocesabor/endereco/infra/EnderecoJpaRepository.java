@@ -9,6 +9,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
 @RequiredArgsConstructor
 @Log4j2
@@ -25,6 +27,17 @@ public class EnderecoJpaRepository implements EnderecoRepository {
             throw APIException.build(HttpStatus.BAD_REQUEST,"EXISTE DADOS DUPLICADOS", e);
         }
         log.info("[finaliza] EnderecoJpaRepository - salva");
+        return endereco;
+    }
+
+    @Override
+    public Endereco buscaEnderecoPorId(UUID idEndereco) {
+        log.info("[inicia] EnderecoJpaRepository - buscaEnderecoPorId");
+        Endereco endereco = jpaRepository.findById(idEndereco).orElseThrow(()
+        ->APIException.build(HttpStatus.NOT_FOUND, "ENDERECO NAO ENCONTRADO OU " +
+                        "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!")
+        );
+        log.info("[finaliza] EnderecoJpaRepository - buscaEnderecoPorId");
         return endereco;
     }
 }

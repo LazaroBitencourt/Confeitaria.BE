@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @RequiredArgsConstructor
 @Log4j2
@@ -18,5 +20,13 @@ public class EnderecoRestController implements EnderecoAPI{
         EnderecoIdResponse enderecoIdResponse = service.cadastraEndereco(enderecoRequest);
         log.info("[finaliza] EnderecoRestController - postCadastraEndereco");
         return enderecoIdResponse;
+    }
+
+    @Override
+    public DetalhaEnderecoResponse getBuscaEnderecoPorId(UUID idEndereco) {
+        log.info("[inicia] EnderecoRestController - getBuscaEnderecoPorId");
+        DetalhaEnderecoResponse detalhaEnderecoResponse = service.buscaEnderecoPorId(idEndereco);
+        log.info("[finaliza] EnderecoRestController - getBuscaEnderecoPorId");
+        return detalhaEnderecoResponse;
     }
 }
