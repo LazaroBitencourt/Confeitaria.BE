@@ -1,6 +1,7 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
+import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.EnderecoRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,4 +31,13 @@ public class Endereco {
     private String bairro;
     @NotBlank
     private String cep;
+
+    public Endereco(EnderecoRequest enderecoRequest) {
+        this.cliente = enderecoRequest.getCliente();
+        this.logadouro = enderecoRequest.getLogadouro();
+        this.numero = enderecoRequest.getNumero();
+        this.bairro = enderecoRequest.getBairro();
+        this.cep = enderecoRequest.getCep();
+    }
+
 }
