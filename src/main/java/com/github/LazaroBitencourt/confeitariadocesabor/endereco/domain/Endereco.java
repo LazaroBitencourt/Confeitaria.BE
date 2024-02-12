@@ -28,6 +28,7 @@ public class Endereco {
     private String numero;
     @NotBlank
     private String bairro;
+    @Column(insertable = false)
     private String complemento;
     @NotBlank
     private String cep;
