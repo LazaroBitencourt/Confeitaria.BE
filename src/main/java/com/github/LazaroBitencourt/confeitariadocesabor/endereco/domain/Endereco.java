@@ -1,13 +1,13 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
+import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.EnderecoRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Entity
@@ -25,11 +25,18 @@ public class Endereco {
     @NotBlank
     private String logadouro;
     @NotBlank
-    @Size(min = 2)
     private String numero;
     @NotBlank
     private String bairro;
     @NotBlank
-    @Size(min = 8, max = 8)
     private String cep;
+
+    public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
+        this.cliente = cliente;
+        this.logadouro = enderecoRequest.getLogadouro();
+        this.numero = enderecoRequest.getNumero();
+        this.bairro = enderecoRequest.getBairro();
+        this.cep = enderecoRequest.getCep();
+    }
+
 }
