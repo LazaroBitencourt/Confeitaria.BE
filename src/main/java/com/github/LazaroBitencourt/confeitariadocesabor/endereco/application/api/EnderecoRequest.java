@@ -21,6 +21,7 @@ public class EnderecoRequest {
     private String numero;
     @NotBlank
     private String bairro;
+    private String complemento;
     @NotBlank
     @Size(min = 8, max = 8, message = "O campo deve conter exatamente 8 numeros")
     private String cep;
