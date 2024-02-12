@@ -32,8 +32,8 @@ public class Endereco {
     @NotBlank
     private String cep;
 
-    public Endereco(EnderecoRequest enderecoRequest) {
-        this.cliente = enderecoRequest.getCliente();
+    public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
+        this.cliente = cliente;
         this.logadouro = enderecoRequest.getLogadouro();
         this.numero = enderecoRequest.getNumero();
         this.bairro = enderecoRequest.getBairro();
