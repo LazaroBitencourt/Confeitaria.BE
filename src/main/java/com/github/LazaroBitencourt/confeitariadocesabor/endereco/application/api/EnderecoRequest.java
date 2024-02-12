@@ -1,6 +1,5 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 import lombok.Getter;
 import lombok.Value;
 

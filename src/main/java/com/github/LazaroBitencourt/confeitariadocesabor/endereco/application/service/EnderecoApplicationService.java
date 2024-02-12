@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class EnderecoApplicationService implements EnderecoService{
 
     private final EnderecoRepository repository;
+
     private final ClienteRepository clienteRepository;
 
     @Override

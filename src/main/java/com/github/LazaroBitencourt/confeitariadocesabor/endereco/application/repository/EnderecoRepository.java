@@ -3,5 +3,6 @@ package com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.re
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain.Endereco;
 
 public interface EnderecoRepository {
+
     Endereco salva(Endereco endereco);
 }
