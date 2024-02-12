@@ -25,11 +25,9 @@ public class Endereco {
     @NotBlank
     private String logadouro;
     @NotBlank
-    @Size(min = 2)
     private String numero;
     @NotBlank
     private String bairro;
     @NotBlank
-    @Size(min = 8, max = 8)
     private String cep;
 }
