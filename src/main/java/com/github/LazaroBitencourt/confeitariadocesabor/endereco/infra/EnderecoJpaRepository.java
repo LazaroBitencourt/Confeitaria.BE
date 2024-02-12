@@ -33,11 +33,11 @@ public class EnderecoJpaRepository implements EnderecoRepository {
     @Override
     public Endereco buscaEnderecoPorId(UUID idEndereco) {
         log.info("[inicia] EnderecoJpaRepository - buscaEnderecoPorId");
-        jpaRepository.findById(idEndereco).orElseThrow(()
+        Endereco endereco = jpaRepository.findById(idEndereco).orElseThrow(()
         ->APIException.build(HttpStatus.NOT_FOUND, "ENDERECO NAO ENCONTRADO OU " +
                         "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!")
         );
         log.info("[finaliza] EnderecoJpaRepository - buscaEnderecoPorId");
-        return null;
+        return endereco;
     }
 }
