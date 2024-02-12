@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.service;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.EnderecoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.EnderecoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.repository.EnderecoRepository;
@@ -14,11 +15,13 @@ import org.springframework.stereotype.Service;
 public class EnderecoApplicationService implements EnderecoService{
 
     private final EnderecoRepository repository;
+    private final ClienteRepository clienteRepository;
 
     @Override
     public EnderecoIdResponse cadastraEndereco(EnderecoRequest enderecoRequest) {
         log.info("[inicia] EnderecoApplicationService - cadastraEndereco");
-        Endereco endereco = repository.salva(new Endereco(enderecoRequest));
+        Cliente cliente = clienteRepository.buscaClientePorId(enderecoRequest.getCliente());
+        Endereco endereco = repository.salva(new Endereco(cliente, enderecoRequest));
         log.info("[finaliza] EnderecoApplicationService - cadastraEndereco");
         return EnderecoIdResponse.builder().IdEndereco(endereco.getIdEndereco()).build();
     }
