@@ -11,4 +11,6 @@ public interface EnderecoService {
     EnderecoIdResponse cadastraEndereco(EnderecoRequest enderecoRequest);
 
     DetalhaEnderecoResponse buscaEnderecoPorId(UUID idEndereco);
+
+    void deletaEnderecoPorId(UUID idEndereco);
 }
