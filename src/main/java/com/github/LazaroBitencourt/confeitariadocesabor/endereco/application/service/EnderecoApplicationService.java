@@ -37,4 +37,11 @@ public class EnderecoApplicationService implements EnderecoService{
         log.info("[finaliza] EnderecoApplicationService - buscaEnderecoPorId");
         return new DetalhaEnderecoResponse(endereco);
     }
+
+    @Override
+    public void deletaEnderecoPorId(UUID idEndereco) {
+        log.info("[inicia] EnderecoApplicationService - deletaEnderecoPorId");
+        repository.deletaEnderecoPorId(idEndereco);
+        log.info("[finaliza] EnderecoApplicationService - deletaEnderecoPorId");
+    }
 }
