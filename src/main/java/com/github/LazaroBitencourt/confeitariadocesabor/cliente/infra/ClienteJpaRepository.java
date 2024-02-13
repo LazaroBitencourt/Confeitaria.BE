@@ -9,6 +9,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
 @RequiredArgsConstructor
 @Log4j2
@@ -25,6 +27,11 @@ public class ClienteJpaRepository implements ClienteRepository {
             throw APIException.build(HttpStatus.BAD_REQUEST,"EXISTE DADOS DUPLICADOS", e);
         }
         log.info("[finaliza] ClienteJpaRepository - salva");
+        return null;
+    }
+
+    @Override
+    public Cliente buscaClientePorId(UUID idCliente) {
         return null;
     }
 }

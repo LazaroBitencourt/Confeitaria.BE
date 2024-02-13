@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.service;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository.ClienteRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.*;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.repository.EnderecoRepository;

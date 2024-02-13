@@ -7,5 +7,5 @@ import java.util.UUID;
 public interface ClienteRepository {
     Cliente salva(Cliente novoCliente);
 
-    Cliente detalhaClientePorId(UUID idCliente);
+    Cliente buscaClientePorId(UUID idCliente);
 }
