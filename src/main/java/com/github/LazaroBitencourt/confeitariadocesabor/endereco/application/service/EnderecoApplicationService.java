@@ -1,9 +1,7 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.service;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.DetalhaEnderecoResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.EnderecoIdResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.EnderecoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.*;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.repository.EnderecoRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain.Endereco;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +34,15 @@ public class EnderecoApplicationService implements EnderecoService{
         Endereco endereco = repository.buscaEnderecoPorId(idEndereco);
         log.info("[finaliza] EnderecoApplicationService - buscaEnderecoPorId");
         return new DetalhaEnderecoResponse(endereco);
+    }
+
+    @Override
+    public void alteraEnderecoPorId(UUID idEndereco, AlteraEnderecoRequest informacoesDoEndereco) {
+        log.info("[inicia] EnderecoApplicationService - alteraEnderecoPorId");
+        Endereco endereco = repository.buscaEnderecoPorId(idEndereco);
+        endereco.alteraInformacoesDoEndereco(informacoesDoEndereco);
+        repository.salva(endereco);
+        log.info("[finaliza] EnderecoApplicationService - alteraEnderecoPorId");
     }
 
     @Override
