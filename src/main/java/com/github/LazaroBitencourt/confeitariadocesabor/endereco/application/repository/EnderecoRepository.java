@@ -9,4 +9,6 @@ public interface EnderecoRepository {
     Endereco salva(Endereco endereco);
 
     Endereco buscaEnderecoPorId(UUID idEndereco);
+
+    void deletaEnderecoPorId(UUID idEndereco);
 }
