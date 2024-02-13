@@ -23,7 +23,6 @@ public class ItemPedidoJpaRepository implements ItemPedidoRepositoy {
         log.info("[inicia] ItemPedidoJpaRepository - salva");
         try {
             jpaRepository.save(itemPedido);
-            log.info("[finaliza] ItemPedidoJpaRepository - salva");
         }catch (DataIntegrityViolationException e){
             throw APIException.build(HttpStatus.BAD_REQUEST,"EXISTE DADOS DUPLICADOS", e);
         }
