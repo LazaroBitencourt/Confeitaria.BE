@@ -40,4 +40,11 @@ public class EnderecoJpaRepository implements EnderecoRepository {
         log.info("[finaliza] EnderecoJpaRepository - buscaEnderecoPorId");
         return endereco;
     }
+
+    @Override
+    public void deletaEnderecoPorId(UUID idEndereco) {
+        log.info("[inicia] EnderecoJpaRepository - deletaEnderecoPorId");
+        jpaRepository.deleteById(idEndereco);
+        log.info("[finaliza] EnderecoJpaRepository - deletaEnderecoPorId");
+    }
 }
