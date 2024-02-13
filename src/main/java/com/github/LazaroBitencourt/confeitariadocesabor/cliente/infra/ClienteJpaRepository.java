@@ -32,6 +32,11 @@ public class ClienteJpaRepository implements ClienteRepository {
 
     @Override
     public Cliente buscaClientePorId(UUID idCliente) {
-        return null;
+        log.info("[inicia] ClienteJpaRepository - buscaClientePorId");
+        Cliente cliente = jpaRepository.findById(idCliente).orElseThrow(()
+        -> APIException.build(HttpStatus.NOT_FOUND, "CLIENTE NAO ENCONTRADO OU " +
+                "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!"));
+        log.info("[finaliza] ClienteJpaRepository - buscaClientePorId");
+        return cliente;
     }
 }
