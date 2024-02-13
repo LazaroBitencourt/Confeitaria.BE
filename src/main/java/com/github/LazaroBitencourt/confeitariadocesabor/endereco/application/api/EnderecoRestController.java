@@ -31,6 +31,13 @@ public class EnderecoRestController implements EnderecoAPI{
     }
 
     @Override
+    public void patchAlteraEnderecoPorId(UUID idEndereco, AlteraEnderecoRequest alteraEnderecoRequest) {
+        log.info("[inicia] EnderecoRestController - patchAlteraEnderecoPorId");
+        service.alteraEnderecoPorId(idEndereco,alteraEnderecoRequest);
+        log.info("[finaliza] EnderecoRestController - patchAlteraEnderecoPorId");
+    }
+
+    @Override
     public void deleteEnderecoPorId(UUID idEndereco) {
         log.info("[inicia] EnderecoRestController - deleteEnderecoPorId");
         service.deletaEnderecoPorId(idEndereco);

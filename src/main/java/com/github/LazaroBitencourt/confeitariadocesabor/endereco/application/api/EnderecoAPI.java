@@ -17,8 +17,11 @@ public interface EnderecoAPI {
     @ResponseStatus(HttpStatus.OK)
     public DetalhaEnderecoResponse getBuscaEnderecoPorId(@PathVariable("id") UUID idEndereco);
 
+    @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void patchAlteraEnderecoPorId(@PathVariable("id") UUID idEndereco, @Valid AlteraEnderecoRequest alteraEnderecoRequest);
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteEnderecoPorId(@PathVariable("id") UUID idEndereco);
-
 }
