@@ -29,4 +29,11 @@ public class EnderecoRestController implements EnderecoAPI{
         log.info("[finaliza] EnderecoRestController - getBuscaEnderecoPorId");
         return detalhaEnderecoResponse;
     }
+
+    @Override
+    public void deleteEnderecoPorId(UUID idEndereco) {
+        log.info("[inicia] EnderecoRestController - deleteEnderecoPorId");
+        service.deletaEnderecoPorId(idEndereco);
+        log.info("[finaliza] EnderecoRestController - deleteEnderecoPorId");
+    }
 }
