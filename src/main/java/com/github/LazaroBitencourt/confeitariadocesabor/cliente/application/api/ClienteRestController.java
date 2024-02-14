@@ -26,7 +26,7 @@ public class ClienteRestController implements ClienteAPI{
     public DetalhaClienteResponse getDetalhaClientePorId(UUID idCliente) {
         log.info("[inicia] ClienteRestController - getDetalhaClientePorId");
         DetalhaClienteResponse detalhaClienteResponse= service.detalhaClientePorId(idCliente);
-        log.info("[inicia] ClienteRestController - getDetalhaClientePorId");
+        log.info("[finaliza] ClienteRestController - getDetalhaClientePorId");
         return detalhaClienteResponse;
     }
 }
