@@ -18,13 +18,13 @@ import java.util.UUID;
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "UUID", name = "pedido_id", unique = true, updatable = false)
+    @Column(columnDefinition = "UUID", name = "cliente_id", unique = true, updatable = false)
     private UUID idCliente;
     @NotBlank
     private String nome;
     @NotNull
     private String telefone;
-    @ManyToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "endereco_id", nullable = false, updatable = false)
     private Endereco endereco;
 
