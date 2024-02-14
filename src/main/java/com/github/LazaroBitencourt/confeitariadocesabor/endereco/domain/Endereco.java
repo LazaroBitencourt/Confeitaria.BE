@@ -20,8 +20,8 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "UUID",name = "endereco_id", unique = true, updatable = false)
     private UUID idEndereco;
-    @OneToMany
-    @Column(name = "cliente_id",updatable = false)
+    @OneToOne
+    @JoinColumn(name = "cliente_id", nullable = false, updatable = false)
     private Cliente cliente;
     @NotBlank
     private String logadouro;
@@ -29,7 +29,6 @@ public class Endereco {
     private String numero;
     @NotBlank
     private String bairro;
-    @Column(insertable = false)
     private String complemento;
     @NotBlank
     private String cep;
@@ -50,4 +49,5 @@ public class Endereco {
         this.complemento = informacoesDoEndereco.getComplemento();
         this.cep = informacoesDoEndereco.getCep();
     }
+
 }
