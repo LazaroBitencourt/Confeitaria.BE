@@ -48,4 +48,11 @@ public class ClienteJpaRepository implements ClienteRepository {
         log.info("[finaliza] ClienteJpaRepository - buscaTodosClientes");
         return listaDeClientes;
     }
+
+    @Override
+    public void deletaClientePorId(UUID idCliente) {
+        log.info("[inicia] ClienteJpaRepository - deletaClientePorId");
+        jpaRepository.deleteById(idCliente);
+        log.info("[finaliza] ClienteJpaRepository - deletaClientePorId");
+    }
 }
