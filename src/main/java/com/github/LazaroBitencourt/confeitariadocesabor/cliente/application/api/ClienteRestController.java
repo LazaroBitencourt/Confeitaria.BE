@@ -15,7 +15,7 @@ public class ClienteRestController implements ClienteAPI{
     private final ClienteService service;
 
     @Override
-    public ClienteIdResponse postCadastraNovoCliente(ClientRequest clientRequest) {
+    public ClienteIdResponse postCadastraNovoCliente(ClienteRequest clientRequest) {
         log.info("[inicia] ClienteRestController - postCadastraCliente");
         ClienteIdResponse clienteIdResponse = service.cadastraNovoCliente(clientRequest);
         log.info("[finaliza] ClienteRestController - postCadastraCliente");
