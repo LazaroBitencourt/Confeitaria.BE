@@ -1,6 +1,5 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.TipoDeEntrega;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.TipoDePagamento;
 import lombok.Builder;
