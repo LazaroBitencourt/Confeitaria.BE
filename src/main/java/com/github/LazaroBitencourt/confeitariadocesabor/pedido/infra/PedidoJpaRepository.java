@@ -9,6 +9,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
 @RequiredArgsConstructor
 @Log4j2
@@ -26,5 +28,15 @@ public class PedidoJpaRepository implements PedidoRepository {
         }
         log.info("[finaliza] PedidoJpaRepository - salva");
         return novoPedido;
+    }
+
+    @Override
+    public Pedido buscaPedidoPorId(UUID idPedido) {
+        log.info("[inicia] PedidoJpaRepository - buscaPedidoPorId");
+        Pedido pedido = jpaRepository.findById(idPedido).orElseThrow(()
+        -> APIException.build(HttpStatus.NOT_FOUND,"PEDIDO NAO ENCONTRADO OU " +
+                "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!"));
+        log.info("[finaliza] PedidoJpaRepository - buscaPedidoPorId");
+        return pedido;
     }
 }
