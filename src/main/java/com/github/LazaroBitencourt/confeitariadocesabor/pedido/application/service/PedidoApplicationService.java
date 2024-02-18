@@ -3,6 +3,7 @@ package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.serv
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository.ClienteRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.DetalhaPedidoResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.ItemPedidoRepositoy;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoIdResponse;
@@ -14,6 +15,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,6 +35,14 @@ public class PedidoApplicationService implements PedidoService{
         Pedido pedido = repository.salva(new Pedido( cliente, listaDeItemPedido, novoPedido));
         log.info("[finaliza] PedidoApplicationService - cadastraPedido");
         return PedidoIdResponse.builder().idPedido(pedido.getIdPedido()).build();
+    }
+
+    @Override
+    public DetalhaPedidoResponse detalhaPedidoPorId(UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - detalhaPedidoPorId");
+        Pedido pedido = repository.buscaPedidoPorId(idPedido);
+        log.info("[finaliza] PedidoApplicationService - detalhaPedidoPorId");
+        return new DetalhaPedidoResponse(pedido);
     }
 
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
