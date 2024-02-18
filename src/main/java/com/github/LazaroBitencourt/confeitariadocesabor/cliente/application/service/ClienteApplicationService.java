@@ -59,4 +59,14 @@ public class ClienteApplicationService implements ClienteService{
         repository.salva(cliente);
         log.info("[finaliza] ClienteApplicationService - alteraInformacoesDoCliente");
     }
+
+    @Override
+    public void deletaClientePorId(UUID idCliente) {
+        log.info("[inicia] ClienteApplicationService - deletaClientePorId");
+        Cliente cliente = repository.buscaClientePorId(idCliente);
+        enderecoRepository.deletaEnderecoPorId(cliente.getEndereco().getIdEndereco());
+        repository.deletaClientePorId(idCliente);
+        log.info("[finaliza] ClienteApplicationService - deletaClientePorId");
+
+    }
 }
