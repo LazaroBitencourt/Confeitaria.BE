@@ -11,4 +11,5 @@ public interface EnderecoRepository {
     Endereco buscaEnderecoPorId(UUID idEndereco);
 
     void deletaEnderecoPorId(UUID idEndereco);
+
 }
