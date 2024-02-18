@@ -29,4 +29,8 @@ public interface ClienteAPI {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteClientePorId(@PathVariable("id") UUID idCliente);
+
+    @GetMapping("/endereco/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public DetalhaEnderecoDoClienteResponse getBuscaEnderecoClientePorId(@PathVariable("id") UUID idCliente);
 }

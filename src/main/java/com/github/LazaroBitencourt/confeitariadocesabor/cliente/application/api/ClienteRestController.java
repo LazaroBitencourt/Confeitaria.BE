@@ -52,4 +52,12 @@ public class ClienteRestController implements ClienteAPI{
         service.deletaClientePorId(idCliente);
         log.info("[finaliza] ClienteRestController - deleteClientePorId");
     }
+
+    @Override
+    public DetalhaEnderecoDoClienteResponse getBuscaEnderecoClientePorId(UUID idCliente) {
+        log.info("[inicia] ClienteRestController - getBuscaEnderecoClientePorId");
+        DetalhaEnderecoDoClienteResponse detalhaEnderecoDoClienteResponse = service.buscaEnderecoClientePorId(idCliente);
+        log.info("[finaliza] ClienteRestController - getBuscaEnderecoClientePorId");
+        return detalhaEnderecoDoClienteResponse;
+    }
 }
