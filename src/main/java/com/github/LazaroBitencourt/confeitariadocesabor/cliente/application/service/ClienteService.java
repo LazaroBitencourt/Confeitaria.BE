@@ -1,9 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.service;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.AlteraInformacoesRequest;
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteIdResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.DetalhaClienteResponse;
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -18,4 +15,6 @@ public interface ClienteService {
     void alteraInformacoesDoCliente(UUID idCliente, AlteraInformacoesRequest informacoesCliente);
 
     void deletaClientePorId(UUID idCliente);
+
+    DetalhaEnderecoDoClienteResponse buscaEnderecoClientePorId(UUID idCliente);
 }
