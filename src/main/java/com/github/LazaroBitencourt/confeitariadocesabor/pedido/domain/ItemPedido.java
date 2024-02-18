@@ -29,6 +29,5 @@ public class ItemPedido {
         this.quantidade = quantidade;
 
     }
-
 }
 
