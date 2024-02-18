@@ -24,5 +24,5 @@ public interface ClienteAPI {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void alteraInformacoesDoCliente(@PathVariable UUID idCliente, @RequestBody AlteraInformacoesRequest informacoesCliente);
+    public void alteraInformacoesDoCliente(@PathVariable("id") UUID idCliente, @RequestBody AlteraInformacoesRequest informacoesCliente);
 }
