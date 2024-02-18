@@ -2,10 +2,9 @@ package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.serv
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository.ClienteRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoIdResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.repository.ItemPedidoRepositoy;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.service.ItemPedidoApplicationService;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.ItemPedidoIdResponse;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.ItemPedidoRepositoy;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.ItemPedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.PedidoRepository;
