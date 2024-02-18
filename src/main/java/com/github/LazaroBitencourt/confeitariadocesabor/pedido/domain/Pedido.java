@@ -41,12 +41,12 @@ public class Pedido {
     @Enumerated(EnumType.STRING)
     private TipoDePagamento formaDePagamento;
 
-    public Pedido(Cliente cliente, PedidoRequest pedidoRequest) {
+    public Pedido(Cliente cliente,List<ItemPedido> itensPedido, PedidoRequest pedidoRequest) {
         this.cliente = cliente;
         this.dataHoraDoPedido = LocalDateTime.now();
         this.dataHoraParaEntrega = pedidoRequest.getDataHoraParaEntrega();
-        this.itensDePedido = pedidoRequest.getItensDePedido();
-        this.valorTotal = calculaValorTotalDeItensDePedido(pedidoRequest.getItensDePedido());
+        this.itensDePedido = itensPedido;
+        this.valorTotal = calculaValorTotalDeItensDePedido(itensPedido);
         this.formaDeEntrega = pedidoRequest.getFormaDeEntrega();
         this.formaDePagamento = pedidoRequest.getFormaDePagamento();
     }
