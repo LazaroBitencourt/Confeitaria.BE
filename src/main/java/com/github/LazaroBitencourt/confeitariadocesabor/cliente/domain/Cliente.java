@@ -1,7 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClientRequest;
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain.Endereco;
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,14 +23,14 @@ public class Cliente {
     private String nome;
     @NotNull
     private String telefone;
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "endereco_id", nullable = false, updatable = false)
     private Endereco endereco;
 
-    public Cliente(ClientRequest clientRequest) {
-        this.nome = clientRequest.getNome();
-        this.telefone = clientRequest.getTelefone();
-        this.endereco = clientRequest.getEndereco();
+    public Cliente(ClienteRequest clienteRequest, Endereco endereco) {
+        this.nome = clienteRequest.getNome();
+        this.telefone = clienteRequest.getTelefone();
+        this.endereco = endereco;
     }
 
 }

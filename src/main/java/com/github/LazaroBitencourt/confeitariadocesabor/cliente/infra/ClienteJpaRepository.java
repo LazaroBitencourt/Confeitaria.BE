@@ -27,7 +27,7 @@ public class ClienteJpaRepository implements ClienteRepository {
             throw APIException.build(HttpStatus.BAD_REQUEST,"EXISTE DADOS DUPLICADOS", e);
         }
         log.info("[finaliza] ClienteJpaRepository - salva");
-        return null;
+        return novoCliente;
     }
 
     @Override
