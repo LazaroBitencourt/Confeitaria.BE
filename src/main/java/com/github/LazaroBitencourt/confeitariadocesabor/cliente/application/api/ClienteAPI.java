@@ -11,7 +11,7 @@ public interface ClienteAPI {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ClienteIdResponse postCadastraNovoCliente(@RequestBody @Valid ClientRequest clientRequest);
+    public ClienteIdResponse postCadastraNovoCliente(@RequestBody @Valid ClienteRequest clientRequest);
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
