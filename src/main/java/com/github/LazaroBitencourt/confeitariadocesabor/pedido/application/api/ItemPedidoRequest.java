@@ -1,15 +1,16 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api;
 
 import lombok.Getter;
+import lombok.Value;
 
 import javax.validation.constraints.NotNull;
 
 @Getter
+@Value
 public class ItemPedidoRequest {
-
-    @NotNull(message = "ID do Produto deve ser definido")
+    @NotNull
     private Long idProduto;
-    @NotNull(message = "Quantidades de produto deve ser definida")
+    @NotNull
     private int quantidade;
 
 }
