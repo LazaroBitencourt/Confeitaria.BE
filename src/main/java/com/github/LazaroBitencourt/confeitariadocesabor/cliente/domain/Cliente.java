@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.AlteraInformacoesRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,4 +34,9 @@ public class Cliente {
         this.endereco = endereco;
     }
 
+    public void alteraInformacoes(AlteraInformacoesRequest informacoes, Endereco endereco) {
+        this.nome = informacoes.getNome();
+        this.telefone = informacoes.getTelefone();
+        this.endereco = endereco;
+    }
 }
