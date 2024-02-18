@@ -24,21 +24,14 @@ public class DetalhaPedidoResponse {
 
     public DetalhaPedidoResponse(Pedido pedido) {
         this.idPedido = pedido.getIdPedido();
-        this.cliente = converteTipoClienteParaInformacoesCliente(pedido);
+        this.cliente = new InformacoesDoCliente(pedido);
         this.dataHoraDoPedido = pedido.getDataHoraDoPedido();
         this.dataHoraParaEntrega = pedido.getDataHoraParaEntrega();
         this.itensDePedido = pedido.getItensDePedido();
         this.formaDeEntrega = pedido.getFormaDeEntrega();
         this.formaDePagamento = pedido.getFormaDePagamento();
         this.valorTotal = pedido.getValorTotal();
-        this.endereco = converteTipoEnderecoParaEnderecoDeEntrega(pedido);
-    }
-
-    private InformacoesDoCliente converteTipoClienteParaInformacoesCliente (Pedido pedido){
-        return new InformacoesDoCliente(pedido);
-    }
-    private EnderecoDeEntrega converteTipoEnderecoParaEnderecoDeEntrega(Pedido pedido){
-        return new EnderecoDeEntrega(pedido);
+        this.endereco = new EnderecoDeEntrega(pedido);
     }
 
 }
