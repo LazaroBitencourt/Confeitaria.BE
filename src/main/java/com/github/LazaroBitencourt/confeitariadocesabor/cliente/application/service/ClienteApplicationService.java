@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -36,5 +37,13 @@ public class ClienteApplicationService implements ClienteService{
         Cliente cliente = repository.buscaClientePorId(idCliente);
         log.info("[finaliza] ClienteApplicationService - detalhaClientePorId");
         return new DetalhaClienteResponse(cliente);
+    }
+
+    @Override
+    public List<DetalhaClienteResponse> listaTodosClientes() {
+        log.info("[inicia] ClienteApplicationService - listaTodosClientes");
+        List<Cliente> listaDeClientes = repository.buscaTodosClientes();
+        log.info("[finaliza] ClienteApplicationService - listaTodosClientes");
+        return DetalhaClienteResponse.converte(listaDeClientes);
     }
 }
