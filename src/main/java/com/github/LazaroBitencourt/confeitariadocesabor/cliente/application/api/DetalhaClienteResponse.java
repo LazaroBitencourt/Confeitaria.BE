@@ -3,7 +3,9 @@ package com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 import lombok.Getter;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Getter
 public class DetalhaClienteResponse {
@@ -20,4 +22,7 @@ public class DetalhaClienteResponse {
         this.endereco = new ClienteEndereco(cliente.getEndereco());
     }
 
+    public static List<DetalhaClienteResponse> converte(List<Cliente> listaDeClientes) {
+        return listaDeClientes.stream().map(cliente -> new DetalhaClienteResponse(cliente)).collect(Collectors.toList());
+    }
 }
