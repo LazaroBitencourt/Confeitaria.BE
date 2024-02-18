@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.service;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.AlteraInformacoesRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.DetalhaClienteResponse;
@@ -13,4 +14,6 @@ public interface ClienteService {
     DetalhaClienteResponse detalhaClientePorId(UUID idCliente);
 
     List<DetalhaClienteResponse> listaTodosClientes();
+
+    void alteraInformacoesDoCliente(UUID idCliente, AlteraInformacoesRequest informacoesCliente);
 }
