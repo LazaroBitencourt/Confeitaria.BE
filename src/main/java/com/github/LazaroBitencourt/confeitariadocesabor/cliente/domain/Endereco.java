@@ -1,6 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.AlteraEnderecoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.EnderecoRequest;
 import lombok.AllArgsConstructor;
@@ -20,9 +20,6 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "UUID",name = "endereco_id", unique = true, updatable = false)
     private UUID idEndereco;
-    @OneToOne
-    @JoinColumn(name = "cliente_id", nullable = false, updatable = false)
-    private Cliente cliente;
     @NotBlank
     private String logadouro;
     @NotBlank
@@ -33,13 +30,20 @@ public class Endereco {
     @NotBlank
     private String cep;
 
-    public Endereco(Cliente cliente, EnderecoRequest enderecoRequest) {
-        this.cliente = cliente;
+    public Endereco(EnderecoRequest enderecoRequest) {
         this.logadouro = enderecoRequest.getLogadouro();
         this.numero = enderecoRequest.getNumero();
         this.bairro = enderecoRequest.getBairro();
         this.complemento = enderecoRequest.getComplemento();
         this.cep = enderecoRequest.getCep();
+    }
+
+    public Endereco(ClienteRequest clienteRequest) {
+        this.logadouro = clienteRequest.getEndereco().getLogadouro();
+        this.numero = clienteRequest.getEndereco().getNumero();
+        this.bairro = clienteRequest.getEndereco().getBairro();
+        this.complemento = clienteRequest.getEndereco().getComplemento();
+        this.cep = clienteRequest.getEndereco().getCep();
     }
 
     public void alteraInformacoesDoEndereco(AlteraEnderecoRequest informacoesDoEndereco) {
