@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -38,5 +39,13 @@ public class ClienteJpaRepository implements ClienteRepository {
                 "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!"));
         log.info("[finaliza] ClienteJpaRepository - buscaClientePorId");
         return cliente;
+    }
+
+    @Override
+    public List<Cliente> buscaTodosClientes() {
+        log.info("[inicia] ClienteJpaRepository - buscaTodosClientes");
+        List<Cliente> listaDeClientes =  jpaRepository.findAll();
+        log.info("[finaliza] ClienteJpaRepository - buscaTodosClientes");
+        return listaDeClientes;
     }
 }
