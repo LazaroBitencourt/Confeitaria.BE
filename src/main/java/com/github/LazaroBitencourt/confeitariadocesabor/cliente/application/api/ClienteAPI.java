@@ -21,4 +21,8 @@ public interface ClienteAPI {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<DetalhaClienteResponse> getListaTodosClientes();
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void alteraInformacoesDoCliente(@PathVariable UUID idCliente, @RequestBody AlteraInformacoesRequest informacoesCliente);
 }
