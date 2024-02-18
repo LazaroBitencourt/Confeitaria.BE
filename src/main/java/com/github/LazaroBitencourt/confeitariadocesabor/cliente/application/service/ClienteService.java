@@ -16,4 +16,6 @@ public interface ClienteService {
     List<DetalhaClienteResponse> listaTodosClientes();
 
     void alteraInformacoesDoCliente(UUID idCliente, AlteraInformacoesRequest informacoesCliente);
+
+    void deletaClientePorId(UUID idCliente);
 }
