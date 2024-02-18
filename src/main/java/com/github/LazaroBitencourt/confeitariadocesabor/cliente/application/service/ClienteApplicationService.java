@@ -1,9 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.service;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.AlteraInformacoesRequest;
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteIdResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.DetalhaClienteResponse;
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.*;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository.ClienteRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository.EnderecoRepository;
@@ -68,5 +65,13 @@ public class ClienteApplicationService implements ClienteService{
         repository.deletaClientePorId(idCliente);
         log.info("[finaliza] ClienteApplicationService - deletaClientePorId");
 
+    }
+
+    @Override
+    public DetalhaEnderecoDoClienteResponse buscaEnderecoClientePorId(UUID idCliente) {
+        log.info("[inicia] ClienteApplicationService - buscaEnderecoClientePorId");
+        Cliente cliente = repository.buscaClientePorId(idCliente);
+        log.info("[finaliza] ClienteApplicationService - buscaEnderecoClientePorId");
+        return new DetalhaEnderecoDoClienteResponse(cliente.getEndereco());
     }
 }
