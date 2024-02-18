@@ -7,6 +7,7 @@ import lombok.Getter;
 import java.time.LocalDate;
 @Getter
 public class DetalhaProdutoResponse {
+    private Long idProduto;
     private String nome;
     private String descricao;
     private Categoria categoria;
@@ -15,6 +16,7 @@ public class DetalhaProdutoResponse {
     private Double preco;
 
     public DetalhaProdutoResponse(Produto produto) {
+        this.idProduto = produto.getIdProduto();
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
         this.categoria = produto.getCategoria();

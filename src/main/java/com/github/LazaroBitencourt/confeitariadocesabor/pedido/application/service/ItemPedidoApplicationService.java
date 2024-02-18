@@ -1,10 +1,9 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.service;
+package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.service;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoIdResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoRequest;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api.ItemPedidoResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.repository.ItemPedidoRepositoy;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.ItemPedidoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.ItemPedidoResponse;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.ItemPedidoRepositoy;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.ItemPedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.application.repositoy.ProdutoRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.produtos.domain.Produto;
 import lombok.RequiredArgsConstructor;
@@ -14,24 +13,24 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Log4j2
-public class ItemPedidoApplicationService implements ItemProdutoService{
+public class ItemPedidoApplicationService implements ItemPedidoService {
 
     private final ItemPedidoRepositoy repository;
     private final ProdutoRepository produtoRepository;
 
     @Override
-    public ItemPedidoIdResponse cadastraItemPedido(ItemPedidoRequest novoItemPedido) {
+    public ItemPedido cadastraItemPedido(ItemPedidoRequest novoItemPedido) {
         log.info("[inicia] ItemPedidoApplicationService - cadastraItemPedido");
         Produto produto = produtoRepository.buscaProdutoPorId(novoItemPedido.getIdProduto());
         ItemPedido itemPedido = repository.salva(new ItemPedido(produto,novoItemPedido.getQuantidade()));
         log.info("[finaliza] ItemPedidoApplicationService - cadastraItemPedido");
-        return ItemPedidoIdResponse.builder().idItemPedido(itemPedido.getIdItemPedido()).build();
+        return itemPedido;
     }
 
     @Override
     public ItemPedidoResponse buscaItemPedidoPorId(Long idItemProduto) {
         log.info("[inicia] ItemPedidoApplicationService - buscaItemPedidoPorId");
-        ItemPedido itemPedido = repository.buscaItemPedidoPorId(idItemProduto);
+       ItemPedido itemPedido = repository.buscaItemPedidoPorId(idItemProduto);
         ItemPedidoResponse itemPedidoResponse = ItemPedidoResponse.builder()
                 .idProduto(itemPedido.getProduto().getIdProduto())
                 .quantidade(itemPedido.getQuantidade())

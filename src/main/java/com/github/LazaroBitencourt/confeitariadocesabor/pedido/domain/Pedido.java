@@ -1,7 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

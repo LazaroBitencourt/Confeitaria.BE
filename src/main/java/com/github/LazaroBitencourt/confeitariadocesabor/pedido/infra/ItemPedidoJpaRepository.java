@@ -1,8 +1,8 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.infra;
+package com.github.LazaroBitencourt.confeitariadocesabor.pedido.infra;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.handler.APIException;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.repository.ItemPedidoRepositoy;
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.ItemPedidoRepositoy;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.ItemPedido;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;

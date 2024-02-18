@@ -1,6 +1,6 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.repository;
+package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.ItemPedido;
 
 public interface ItemPedidoRepositoy {
 

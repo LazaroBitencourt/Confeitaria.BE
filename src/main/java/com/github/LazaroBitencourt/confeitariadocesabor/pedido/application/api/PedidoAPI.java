@@ -10,7 +10,6 @@ import javax.validation.Valid;
 
 @RequestMapping("/pedido")
 public interface PedidoAPI {
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public PedidoIdResponse postCadastraPedido (@RequestBody @Valid PedidoRequest pedidoRequest);

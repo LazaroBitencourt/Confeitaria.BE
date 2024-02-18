@@ -1,4 +1,4 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.itempedido.application.api;
+package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api;
 
 import lombok.Builder;
 import lombok.Getter;

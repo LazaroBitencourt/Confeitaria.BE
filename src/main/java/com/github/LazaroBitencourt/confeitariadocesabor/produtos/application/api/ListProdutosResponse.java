@@ -10,12 +10,14 @@ import java.util.stream.Collectors;
 @Getter
 public class ListProdutosResponse {
 
+    private Long idProduto;
     private String nome;
     private String descricao;
     private Categoria categoria;
     private Double preco;
 
     public ListProdutosResponse(Produto produto) {
+        this.idProduto = produto.getIdProduto();
         this.nome = produto.getNome();
         this.descricao = produto.getDescricao();
         this.categoria = produto.getCategoria();
