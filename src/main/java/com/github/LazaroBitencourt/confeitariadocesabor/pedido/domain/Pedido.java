@@ -1,7 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain.Endereco;
 import com.github.LazaroBitencourt.confeitariadocesabor.itempedido.domain.ItemPedido;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,6 +39,6 @@ public class Pedido {
     @NotNull
     @Enumerated(EnumType.STRING)
     private TipoDePagamento formaDePagamento;
-    @NotNull
-    private Endereco endereco;
+    //@NotNull
+    //private Endereco endereco;
 }
