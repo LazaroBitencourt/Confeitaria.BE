@@ -1,6 +1,6 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.repository;
+package com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain.Endereco;
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Endereco;
 
 import java.util.UUID;
 

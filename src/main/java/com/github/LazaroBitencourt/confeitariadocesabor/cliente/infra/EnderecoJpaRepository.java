@@ -1,7 +1,7 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.endereco.infra;
+package com.github.LazaroBitencourt.confeitariadocesabor.cliente.infra;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.repository.EnderecoRepository;
-import com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain.Endereco;
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository.EnderecoRepository;
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Endereco;
 import com.github.LazaroBitencourt.confeitariadocesabor.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

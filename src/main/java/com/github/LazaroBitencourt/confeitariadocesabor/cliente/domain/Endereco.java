@@ -1,4 +1,4 @@
-package com.github.LazaroBitencourt.confeitariadocesabor.endereco.domain;
+package com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.endereco.application.api.AlteraEnderecoRequest;
