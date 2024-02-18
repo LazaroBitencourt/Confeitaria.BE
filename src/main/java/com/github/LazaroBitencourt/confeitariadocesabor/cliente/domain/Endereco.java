@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteEndereco;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,4 +37,12 @@ public class Endereco {
         this.cep = clienteRequest.getEndereco().getCep();
     }
 
+    public void alteraInformacoes(ClienteEndereco endereco) {
+        this.logadouro = endereco.getLogadouro();
+        this.numero = endereco.getNumero();
+        this.bairro = endereco.getBairro();
+        this.complemento = endereco.getComplemento();
+        this.cep = endereco.getCep();
+
+    }
 }

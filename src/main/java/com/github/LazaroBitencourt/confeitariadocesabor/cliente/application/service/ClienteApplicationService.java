@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.service;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.AlteraInformacoesRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.ClienteIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.DetalhaClienteResponse;
@@ -45,5 +46,17 @@ public class ClienteApplicationService implements ClienteService{
         List<Cliente> listaDeClientes = repository.buscaTodosClientes();
         log.info("[finaliza] ClienteApplicationService - listaTodosClientes");
         return DetalhaClienteResponse.converte(listaDeClientes);
+    }
+
+    @Override
+    public void alteraInformacoesDoCliente(UUID idCliente, AlteraInformacoesRequest informacoes) {
+        log.info("[inicia] ClienteApplicationService - alteraInformacoesDoCliente");
+        Cliente cliente = repository.buscaClientePorId(idCliente);
+        Endereco endereco = enderecoRepository.buscaEnderecoPorId(cliente.getEndereco().getIdEndereco());
+        endereco.alteraInformacoes(informacoes.getEndereco());
+        enderecoRepository.salva(endereco);
+        cliente.alteraInformacoes(informacoes, endereco);
+        repository.salva(cliente);
+        log.info("[finaliza] ClienteApplicationService - alteraInformacoesDoCliente");
     }
 }
