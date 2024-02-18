@@ -12,15 +12,15 @@ import java.util.UUID;
 
 @Getter
 public class DetalhaPedidoResponse {
-    private UUID idPedido;
     private InformacoesDoCliente cliente;
+    private EnderecoDeEntrega enderecoDeEntrega;
+    private UUID idPedido;
     private LocalDateTime dataHoraDoPedido;
     private LocalDateTime dataHoraParaEntrega;
-    private List<ItemPedido> itensDePedido;
     private TipoDeEntrega formaDeEntrega;
     private TipoDePagamento formaDePagamento;
     private double valorTotal;
-    private EnderecoDeEntrega  endereco;
+    private List<ItemPedido> itensDePedido;
 
     public DetalhaPedidoResponse(Pedido pedido) {
         this.idPedido = pedido.getIdPedido();
@@ -31,7 +31,7 @@ public class DetalhaPedidoResponse {
         this.formaDeEntrega = pedido.getFormaDeEntrega();
         this.formaDePagamento = pedido.getFormaDePagamento();
         this.valorTotal = pedido.getValorTotal();
-        this.endereco = new EnderecoDeEntrega(pedido);
+        this.enderecoDeEntrega = new EnderecoDeEntrega(pedido);
     }
 
 }
