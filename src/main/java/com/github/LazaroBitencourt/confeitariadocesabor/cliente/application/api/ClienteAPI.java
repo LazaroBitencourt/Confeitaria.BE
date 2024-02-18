@@ -16,7 +16,7 @@ public interface ClienteAPI {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public DetalhaClienteResponse getDetalhaClientePorId(@PathVariable("id")UUID idCliente);
+    public DetalhaClienteResponse getDetalhaClientePorId(@PathVariable("id") UUID idCliente);
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
@@ -24,5 +24,9 @@ public interface ClienteAPI {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void alteraInformacoesDoCliente(@PathVariable("id") UUID idCliente, @RequestBody AlteraInformacoesRequest informacoesCliente);
+    public void putAlteraInformacoesDoCliente(@PathVariable("id") UUID idCliente, @RequestBody AlteraInformacoesRequest informacoesCliente);
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteClientePorId(@PathVariable("id") UUID idCliente);
 }
