@@ -4,10 +4,13 @@ import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.D
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface PedidoService {
     PedidoIdResponse cadastraPedido(PedidoRequest pedidoRequest);
 
     DetalhaPedidoResponse detalhaPedidoPorId(UUID idPedido);
+
+    List<DetalhaPedidoResponse> listaTodosPedidos();
 }
