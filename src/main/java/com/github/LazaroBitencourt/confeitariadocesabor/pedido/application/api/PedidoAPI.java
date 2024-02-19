@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @RequestMapping("/pedido")
@@ -15,4 +16,8 @@ public interface PedidoAPI {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public DetalhaPedidoResponse getDetalhaPedidoPorId(@PathVariable("id") UUID idPedido);
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public List<DetalhaPedidoResponse> getListaTodosPedidos();
 }
