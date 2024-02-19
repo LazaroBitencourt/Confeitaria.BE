@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -27,6 +28,14 @@ public class PedidoRestController implements PedidoAPI{
         log.info("[inicia] PedidoRestController - getDetalhaPedidoPorId");
         DetalhaPedidoResponse detalhaPedidoResponse = service.detalhaPedidoPorId(idPedido);
         log.info("[finaliza] PedidoRestController - getDetalhaPedidoPorId");
+        return detalhaPedidoResponse;
+    }
+
+    @Override
+    public List<DetalhaPedidoResponse> getListaTodosPedidos() {
+        log.info("[inicia] PedidoRestController - getListaTodosPedidos");
+        List<DetalhaPedidoResponse> detalhaPedidoResponse = service.listaTodosPedidos();
+        log.info("[finaliza] PedidoRestController - getListaTodosPedidos");
         return detalhaPedidoResponse;
     }
 }

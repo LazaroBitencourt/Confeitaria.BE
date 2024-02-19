@@ -1,5 +1,6 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api;
 
+import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.api.DetalhaClienteResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.ItemPedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.Pedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.TipoDeEntrega;
@@ -9,6 +10,7 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Getter
 public class DetalhaPedidoResponse {
@@ -34,4 +36,7 @@ public class DetalhaPedidoResponse {
         this.enderecoDeEntrega = new EnderecoDeEntrega(pedido);
     }
 
+    public static List<DetalhaPedidoResponse> converte(List<Pedido> listaDePedidos) {
+        return listaDePedidos.stream().map(pedido -> new DetalhaPedidoResponse(pedido)).collect(Collectors.toList());
+    }
 }

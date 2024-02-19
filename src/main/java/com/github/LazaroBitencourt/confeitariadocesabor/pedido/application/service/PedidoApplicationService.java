@@ -45,6 +45,14 @@ public class PedidoApplicationService implements PedidoService{
         return new DetalhaPedidoResponse(pedido);
     }
 
+    @Override
+    public List<DetalhaPedidoResponse> listaTodosPedidos() {
+        log.info("[inicia] PedidoApplicationService - listaTodosPedidos");
+        List<Pedido> listaDePedidos = repository.buscaTodosPedidos();
+        log.info("[finaliza] PedidoApplicationService - listaTodosPedidos");
+        return DetalhaPedidoResponse.converte(listaDePedidos);
+    }
+
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
         return itensDePedido.getItensDePedido()
                 .stream()

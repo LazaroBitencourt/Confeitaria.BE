@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -38,5 +39,13 @@ public class PedidoJpaRepository implements PedidoRepository {
                 "NAO EXISTE! !INSIRA UM ID VALIDO OU INFORME AO ADM DO SISTEMA!"));
         log.info("[finaliza] PedidoJpaRepository - buscaPedidoPorId");
         return pedido;
+    }
+
+    @Override
+    public List<Pedido> buscaTodosPedidos() {
+        log.info("[inicia] PedidoJpaRepository - buscaTodosPedidos");
+        List<Pedido> listaDePedidos = jpaRepository.findAll();
+        log.info("[finaliza] PedidoJpaRepository - buscaTodosPedidos");
+        return listaDePedidos;
     }
 }
