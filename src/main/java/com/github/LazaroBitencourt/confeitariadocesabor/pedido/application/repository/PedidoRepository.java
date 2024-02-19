@@ -2,10 +2,13 @@ package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repo
 
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.Pedido;
 
+import java.util.List;
 import java.util.UUID;
 
 public interface PedidoRepository {
     Pedido salva(Pedido novoPedido);
 
     Pedido buscaPedidoPorId(UUID idPedido);
+
+    List<Pedido> buscaTodosPedidos();
 }
