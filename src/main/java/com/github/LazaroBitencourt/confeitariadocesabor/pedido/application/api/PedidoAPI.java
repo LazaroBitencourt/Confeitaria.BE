@@ -17,6 +17,10 @@ public interface PedidoAPI {
     @ResponseStatus(HttpStatus.OK)
     public DetalhaPedidoResponse getDetalhaPedidoPorId(@PathVariable("id") UUID idPedido);
 
+    @GetMapping("/cliente{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<DetalhaPedidoResponse> getListaPedidosPeloIdDoCliente(@PathVariable("id") UUID idCliente);
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<DetalhaPedidoResponse> getListaTodosPedidos();
