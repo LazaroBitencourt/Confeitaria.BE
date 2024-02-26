@@ -32,6 +32,14 @@ public class PedidoRestController implements PedidoAPI{
     }
 
     @Override
+    public List<DetalhaPedidoResponse> getListaPedidosDoClientePorIdCliente(UUID idCliente) {
+        log.info("[inicia] PedidoRestController - getListaPedidosDoClientePorIdCliente");
+        List<DetalhaPedidoResponse> listaDePedidos = service.listaPedidosDoClientePorIdCliente(idCliente);
+        log.info("[finaliza] PedidoRestController - getListaPedidosDoClientePorIdCliente");
+        return listaDePedidos;
+    }
+
+    @Override
     public List<DetalhaPedidoResponse> getListaTodosPedidos() {
         log.info("[inicia] PedidoRestController - getListaTodosPedidos");
         List<DetalhaPedidoResponse> detalhaPedidoResponse = service.listaTodosPedidos();
