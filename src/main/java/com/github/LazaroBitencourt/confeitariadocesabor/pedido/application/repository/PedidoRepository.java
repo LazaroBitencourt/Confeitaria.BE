@@ -11,4 +11,6 @@ public interface PedidoRepository {
     Pedido buscaPedidoPorId(UUID idPedido);
 
     List<Pedido> buscaTodosPedidos();
+
+    List<Pedido> buscaPedidosDoClientePorIdCliente(UUID idCliente);
 }
