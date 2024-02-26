@@ -53,6 +53,14 @@ public class PedidoApplicationService implements PedidoService{
         return DetalhaPedidoResponse.converte(listaDePedidos);
     }
 
+    @Override
+    public List<DetalhaPedidoResponse> listaPedidosDoClientePorIdCliente(UUID idCliente) {
+        log.info("[inicia] PedidoApplicationService - listaPedidosDoClientePorIdCliente");
+        List<Pedido> listaDePedidos = repository.buscaPedidosDoClientePorIdCliente(idCliente);
+        log.info("[finaliza] PedidoApplicationService - listaPedidosDoClientePorIdCliente");
+        return DetalhaPedidoResponse.converte(listaDePedidos);
+    }
+
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
         return itensDePedido.getItensDePedido()
                 .stream()
