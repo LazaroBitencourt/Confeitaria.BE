@@ -19,7 +19,7 @@ public interface PedidoAPI {
 
     @GetMapping("/cliente{id}")
     @ResponseStatus(HttpStatus.OK)
-    public List<DetalhaPedidoResponse> getListaPedidosPeloIdDoCliente(@PathVariable("id") UUID idCliente);
+    public List<DetalhaPedidoResponse> getListaPedidosDoClientePorIdCliente(@PathVariable("id") UUID idCliente);
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
