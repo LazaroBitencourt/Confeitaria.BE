@@ -46,18 +46,18 @@ public class PedidoApplicationService implements PedidoService{
     }
 
     @Override
-    public List<DetalhaPedidoResponse> listaTodosPedidos() {
-        log.info("[inicia] PedidoApplicationService - listaTodosPedidos");
-        List<Pedido> listaDePedidos = repository.buscaTodosPedidos();
-        log.info("[finaliza] PedidoApplicationService - listaTodosPedidos");
-        return DetalhaPedidoResponse.converte(listaDePedidos);
-    }
-
-    @Override
     public List<DetalhaPedidoResponse> listaPedidosDoClientePorIdCliente(UUID idCliente) {
         log.info("[inicia] PedidoApplicationService - listaPedidosDoClientePorIdCliente");
         List<Pedido> listaDePedidos = repository.buscaPedidosDoClientePorIdCliente(idCliente);
         log.info("[finaliza] PedidoApplicationService - listaPedidosDoClientePorIdCliente");
+        return DetalhaPedidoResponse.converte(listaDePedidos);
+    }
+
+    @Override
+    public List<DetalhaPedidoResponse> listaTodosPedidos() {
+        log.info("[inicia] PedidoApplicationService - listaTodosPedidos");
+        List<Pedido> listaDePedidos = repository.buscaTodosPedidos();
+        log.info("[finaliza] PedidoApplicationService - listaTodosPedidos");
         return DetalhaPedidoResponse.converte(listaDePedidos);
     }
 
