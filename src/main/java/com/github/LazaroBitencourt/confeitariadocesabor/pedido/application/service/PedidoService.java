@@ -13,4 +13,6 @@ public interface PedidoService {
     DetalhaPedidoResponse detalhaPedidoPorId(UUID idPedido);
 
     List<DetalhaPedidoResponse> listaTodosPedidos();
+
+    List<DetalhaPedidoResponse> listaPedidosDoClientePorIdCliente(UUID idCliente);
 }
