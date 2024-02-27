@@ -1,6 +1,7 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.service;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.DetalhaPedidoResponse;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.ItemPedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
 
@@ -15,4 +16,6 @@ public interface PedidoService {
     List<DetalhaPedidoResponse> listaTodosPedidos();
 
     List<DetalhaPedidoResponse> listaPedidosDoClientePorIdCliente(UUID idCliente);
+
+    void adicionaNovoItemPedidoEmPedido(ItemPedidoRequest itemPedidoRequest, UUID idPedido);
 }

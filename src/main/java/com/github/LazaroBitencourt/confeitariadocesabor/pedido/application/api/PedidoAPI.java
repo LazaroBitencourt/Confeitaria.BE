@@ -24,4 +24,11 @@ public interface PedidoAPI {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<DetalhaPedidoResponse> getListaTodosPedidos();
+
+    @PostMapping("/novo-item-pedido/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void postAdicionaNovoItemPedidoEmPedido (
+            @RequestBody @Valid ItemPedidoRequest itemPedidoRequest,
+            @PathVariable("id") UUID idPedido);
+
 }
