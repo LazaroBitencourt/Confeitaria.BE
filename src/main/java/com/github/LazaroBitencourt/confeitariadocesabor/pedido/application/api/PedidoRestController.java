@@ -60,4 +60,12 @@ public class PedidoRestController implements PedidoAPI{
         service.removeItemPedidoDoPedidoPorId(idItemPedido,idPedido);
         log.info("[finaliza] PedidoRestController - pacthRemoveItemPedidoDoPedidoPorId");
     }
+
+    @Override
+    public void pacthAlteraDataHoraDeEntregaDoPedidoPorId(DataHoraEntregaRequest dataHoraEntrega, UUID idPedido) {
+        log.info("[inicia] PedidoRestController - pacthAlteraDataHoraDeEntregaDoPedidoPorId");
+        service.alteraDataHoraDeEntregaDoPedidoPorId(dataHoraEntrega,idPedido);
+        log.info("[finaliza] PedidoRestController - pacthAlteraDataHoraDeEntregaDoPedidoPorId");
+    }
+
 }
