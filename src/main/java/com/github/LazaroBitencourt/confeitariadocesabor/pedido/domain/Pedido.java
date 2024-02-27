@@ -72,4 +72,8 @@ public class Pedido {
     public void alteraFormaDeEntregaParaRetiraNaLoja() {
         this.formaDeEntrega = TipoDeEntrega.RETIRA_NA_LOJA;
     }
+
+    public void alteraFormaDeEntregaParaEntregaNoEndereco() {
+        this.formaDeEntrega = TipoDeEntrega.ENTREGA_NO_ENDERECO;
+    }
 }

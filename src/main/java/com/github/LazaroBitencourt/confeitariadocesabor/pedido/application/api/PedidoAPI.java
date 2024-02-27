@@ -45,4 +45,8 @@ public interface PedidoAPI {
     @PostMapping("/{id}/retira-na-loja")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void postAlteraFormaDeEntregaParaRetiraNaLoja (@PathVariable("id") UUID idPedido);
+
+    @PostMapping("/{id}/entrega-no-endereco")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void postAlteraFormaDeEntregaParaEntregaNoEndereco (@PathVariable("id") UUID idPedido);
 }
