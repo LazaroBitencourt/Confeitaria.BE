@@ -102,6 +102,14 @@ public class PedidoApplicationService implements PedidoService{
         log.info("[finaliza] PedidoApplicationService - alteraFormaDeEntregaParaEntregaNoEndereco");
     }
 
+    @Override
+    public void alteraFormaDePagamentoParaDinheiro(UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - alteraFormaDePagamentoParaDinheiro");
+        Pedido pedido = repository.buscaPedidoPorId(idPedido);
+        pedido.alteraFormaDePagamentoParaDinheiro();
+        log.info("[finaliza] PedidoApplicationService - alteraFormaDePagamentoParaDinheiro");
+    }
+
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
         return itensDePedido.getItensDePedido()
                 .stream()

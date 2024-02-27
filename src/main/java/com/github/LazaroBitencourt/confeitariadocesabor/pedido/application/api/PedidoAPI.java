@@ -49,4 +49,8 @@ public interface PedidoAPI {
     @PostMapping("/{id}/entrega-no-endereco")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void postAlteraFormaDeEntregaParaEntregaNoEndereco (@PathVariable("id") UUID idPedido);
+
+    @PostMapping("/{id}/dinheiro")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void postAlteraFormaDePagamentoParaDinheiro (@PathVariable("id") UUID idPedido);
 }

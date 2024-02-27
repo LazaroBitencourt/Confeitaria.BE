@@ -23,4 +23,6 @@ public interface PedidoService {
     void alteraFormaDeEntregaParaRetiraNaLoja(UUID idPedido);
 
     void alteraFormaDeEntregaParaEntregaNoEndereco(UUID idPedido);
+
+    void alteraFormaDePagamentoParaDinheiro(UUID idPedido);
 }
