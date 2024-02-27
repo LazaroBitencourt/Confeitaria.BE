@@ -34,7 +34,7 @@ public interface PedidoAPI {
     @PatchMapping("/{idPedido}/remove-item-pedido/{idItemPedido}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void pacthRemoveItemPedidoDoPedidoPorId(
-            @PathVariable("idItemPedido")UUID idItemPedido,
+            @PathVariable("idItemPedido")Long idItemPedido,
             @PathVariable("idPedido")UUID idPedido);
 
 }
