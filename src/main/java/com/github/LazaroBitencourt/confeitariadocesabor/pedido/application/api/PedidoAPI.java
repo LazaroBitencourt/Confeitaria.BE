@@ -40,5 +40,5 @@ public interface PedidoAPI {
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void pacthAlteraDataHoraDeEntregaDoPedidoPorId(
-            @RequestBody @Valid DataHoraEntregaRequest dataHoraEntrega,UUID idPedido);
+            @RequestBody @Valid DataHoraEntregaRequest dataHoraEntrega, @PathVariable("id") UUID idPedido);
 }
