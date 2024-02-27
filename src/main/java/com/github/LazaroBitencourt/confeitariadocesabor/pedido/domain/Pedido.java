@@ -84,4 +84,8 @@ public class Pedido {
     public void alteraFormaDePagamentoParaCartaoDeCredito() {
         this.formaDePagamento = TipoDePagamento.CARTAO_DE_CREDITO;
     }
+
+    public void alteraFormaDePagamentoParaCartaoDeDebito() {
+        this.formaDePagamento = TipoDePagamento.CARTAO_DE_DEBITO;
+    }
 }
