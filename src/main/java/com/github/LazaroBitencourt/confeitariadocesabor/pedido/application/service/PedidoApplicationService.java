@@ -68,7 +68,7 @@ public class PedidoApplicationService implements PedidoService{
         ItemPedido itemPedido = itemPedidoService.cadastraItemPedido(itemPedidoRequest);
         pedido.adicionaNovoItemPedido(itemPedido);
         repository.salva(pedido);
-        log.info("[inicia] PedidoApplicationService - adicionaNovoItemPedidoEmPedido");
+        log.info("[finaliza] PedidoApplicationService - adicionaNovoItemPedidoEmPedido");
     }
 
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
