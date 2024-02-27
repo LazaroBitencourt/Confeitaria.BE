@@ -27,6 +27,8 @@ public interface PedidoAPI {
 
     @PostMapping("/novo-item-pedido/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void postAdicionaNovoItemPedidoEmPedido (@RequestBody @Valid ItemPedidoRequest itemPedidoRequest, @PathVariable UUID idPedido);
+    public void postAdicionaNovoItemPedidoEmPedido (
+            @RequestBody @Valid ItemPedidoRequest itemPedidoRequest,
+            @PathVariable("id") UUID idPedido);
 
 }
