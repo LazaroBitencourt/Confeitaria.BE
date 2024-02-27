@@ -76,4 +76,8 @@ public class Pedido {
     public void alteraFormaDeEntregaParaEntregaNoEndereco() {
         this.formaDeEntrega = TipoDeEntrega.ENTREGA_NO_ENDERECO;
     }
+
+    public void alteraFormaDePagamentoParaDinheiro() {
+        this.formaDePagamento = TipoDePagamento.DINHEIRO;
+    }
 }
