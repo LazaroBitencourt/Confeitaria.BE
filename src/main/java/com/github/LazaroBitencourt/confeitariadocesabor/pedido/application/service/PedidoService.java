@@ -21,4 +21,6 @@ public interface PedidoService {
     void alteraDataHoraDeEntregaDoPedidoPorId(DataHoraEntregaRequest dataHoraEntrega, UUID idPedido);
 
     void alteraFormaDeEntregaParaRetiraNaLoja(UUID idPedido);
+
+    void alteraFormaDeEntregaParaEntregaNoEndereco(UUID idPedido);
 }
