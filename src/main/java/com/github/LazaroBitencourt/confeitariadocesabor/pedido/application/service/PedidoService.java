@@ -18,4 +18,6 @@ public interface PedidoService {
     List<DetalhaPedidoResponse> listaPedidosDoClientePorIdCliente(UUID idCliente);
 
     void adicionaNovoItemPedidoEmPedido(ItemPedidoRequest itemPedidoRequest, UUID idPedido);
+
+    void removeItemPedidoDoPedidoPorId(UUID idItemPedido, UUID idItemPedido1);
 }
