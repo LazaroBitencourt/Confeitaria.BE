@@ -4,6 +4,7 @@ import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repo
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.DetalhaPedidoResponse;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.ItemPedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.ItemPedidoRepositoy;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoIdResponse;
@@ -59,6 +60,15 @@ public class PedidoApplicationService implements PedidoService{
         List<Pedido> listaDePedidos = repository.buscaTodosPedidos();
         log.info("[finaliza] PedidoApplicationService - listaTodosPedidos");
         return DetalhaPedidoResponse.converte(listaDePedidos);
+    }
+
+    public void adicionaNovoItemPedidoEmPedido(ItemPedidoRequest itemPedidoRequest, UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - adicionaNovoItemPedidoEmPedido");
+        Pedido pedido = repository.buscaPedidoPorId(idPedido);
+        ItemPedido itemPedido = itemPedidoService.cadastraItemPedido(itemPedidoRequest);
+        pedido.adicionaNovoItemPedido(itemPedido);
+        repository.salva(pedido);
+        log.info("[inicia] PedidoApplicationService - adicionaNovoItemPedidoEmPedido");
     }
 
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
