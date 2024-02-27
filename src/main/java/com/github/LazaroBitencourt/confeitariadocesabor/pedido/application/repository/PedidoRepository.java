@@ -13,4 +13,6 @@ public interface PedidoRepository {
     List<Pedido> buscaTodosPedidos();
 
     List<Pedido> buscaPedidosDoClientePorIdCliente(UUID idCliente);
+
+    void deletaPedidoPorId(UUID idPedido);
 }
