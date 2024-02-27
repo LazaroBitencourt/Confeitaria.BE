@@ -102,4 +102,11 @@ public class PedidoRestController implements PedidoAPI{
         service.alteraFormaDePagamentoParaCartaoDeDebito(idPedido);
         log.info("[finaliza] PedidoRestController - postAlteraFormaDePagamentoParaCartaoDeDebito");
     }
+
+    @Override
+    public void deletePedidoPorId(UUID idPedido) {
+        log.info("[inicia] PedidoRestController - deletePedidoPorId");
+        service.deletaPedidoPorId(idPedido);
+        log.info("[finaliza] PedidoRestController - deletePedidoPorId");
+    }
 }

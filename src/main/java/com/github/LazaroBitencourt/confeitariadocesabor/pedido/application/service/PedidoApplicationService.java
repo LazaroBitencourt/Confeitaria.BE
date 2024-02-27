@@ -126,6 +126,14 @@ public class PedidoApplicationService implements PedidoService{
         log.info("[finaliza] PedidoApplicationService - alteraFormaDePagamentoParaCartaoDeDebito");
     }
 
+    @Override
+    public void deletaPedidoPorId(UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - deletaPedidoPorId");
+        repository.buscaPedidoPorId(idPedido);
+        repository.deletaPedidoPorId(idPedido);
+        log.info("[finaliza] PedidoApplicationService - deletaPedidoPorId");
+    }
+
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
         return itensDePedido.getItensDePedido()
                 .stream()

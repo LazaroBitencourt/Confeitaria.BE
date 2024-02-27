@@ -29,4 +29,6 @@ public interface PedidoService {
     void alteraFormaDePagamentoParaCartaoDeCredito(UUID idPedido);
 
     void alteraFormaDePagamentoParaCartaoDeDebito(UUID idPedido);
+
+    void deletaPedidoPorId(UUID idPedido);
 }

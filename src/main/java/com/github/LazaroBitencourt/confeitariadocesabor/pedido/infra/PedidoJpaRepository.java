@@ -50,6 +50,13 @@ public class PedidoJpaRepository implements PedidoRepository {
     }
 
     @Override
+    public void deletaPedidoPorId(UUID idPedido) {
+        log.info("[inicia] PedidoJpaRepository - deletaPedidoPorId");
+        jpaRepository.deleteById(idPedido);
+        log.info("[finaliza] PedidoJpaRepository - deletaPedidoPorId");
+    }
+
+    @Override
     public List<Pedido> buscaTodosPedidos() {
         log.info("[inicia] PedidoJpaRepository - buscaTodosPedidos");
         List<Pedido> listaDePedidos = jpaRepository.findAll();
