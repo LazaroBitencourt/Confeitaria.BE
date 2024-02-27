@@ -48,9 +48,16 @@ public class PedidoRestController implements PedidoAPI{
     }
 
     @Override
-    public void postAdicionaNovoItemPedidoEmPedido(ItemPedidoRequest itemPedidoRequest, UUID idPedido) {
-        log.info("[inicia] PedidoRestController - postAdicionaNovoItemPedidoEmPedido");
+    public void pacthAdicionaNovoItemPedidoEmPedido(ItemPedidoRequest itemPedidoRequest, UUID idPedido) {
+        log.info("[inicia] PedidoRestController - pacthAdicionaNovoItemPedidoEmPedido");
         service.adicionaNovoItemPedidoEmPedido(itemPedidoRequest,idPedido);
-        log.info("[finaliza] PedidoRestController - postAdicionaNovoItemPedidoEmPedido");
+        log.info("[finaliza] PedidoRestController - pacthAdicionaNovoItemPedidoEmPedido");
+    }
+
+    @Override
+    public void pacthRemoveItemPedidoDoPedidoPorId(UUID idItemPedido, UUID idPedido) {
+        log.info("[inicia] PedidoRestController - pacthRemoveItemPedidoDoPedidoPorId");
+        service.removeItemPedidoDoPedidoPorId(idItemPedido,idItemPedido);
+        log.info("[finaliza] PedidoRestController - pacthRemoveItemPedidoDoPedidoPorId");
     }
 }

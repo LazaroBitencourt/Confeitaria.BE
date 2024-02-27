@@ -27,7 +27,7 @@ public interface PedidoAPI {
 
     @PatchMapping("/novo-item-pedido/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void postAdicionaNovoItemPedidoEmPedido (
+    public void pacthAdicionaNovoItemPedidoEmPedido (
             @RequestBody @Valid ItemPedidoRequest itemPedidoRequest,
             @PathVariable("id") UUID idPedido);
 
