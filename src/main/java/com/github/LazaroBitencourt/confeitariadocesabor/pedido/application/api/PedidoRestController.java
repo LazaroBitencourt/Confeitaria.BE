@@ -55,9 +55,9 @@ public class PedidoRestController implements PedidoAPI{
     }
 
     @Override
-    public void pacthRemoveItemPedidoDoPedidoPorId(UUID idItemPedido, UUID idPedido) {
+    public void pacthRemoveItemPedidoDoPedidoPorId( Long idItemPedido, UUID idPedido) {
         log.info("[inicia] PedidoRestController - pacthRemoveItemPedidoDoPedidoPorId");
-        service.removeItemPedidoDoPedidoPorId(idItemPedido,idItemPedido);
+        service.removeItemPedidoDoPedidoPorId(idItemPedido,idPedido);
         log.info("[finaliza] PedidoRestController - pacthRemoveItemPedidoDoPedidoPorId");
     }
 }
