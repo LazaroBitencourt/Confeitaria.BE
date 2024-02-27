@@ -1,6 +1,8 @@
 package com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain;
 
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.DataHoraEntregaRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.EnderecoDeEntrega;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -61,5 +63,9 @@ public class Pedido {
 
     public void removeItemPedido(Long idItemPedido) {
         itensDePedido.removeIf(itemPedido -> itemPedido.getIdItemPedido().equals(idItemPedido));
+    }
+
+    public void alteraDataHoraDeEntrega(DataHoraEntregaRequest dataHoraEntrega) {
+        this.dataHoraParaEntrega = dataHoraEntrega.getDatahoraEntrega();
     }
 }
