@@ -46,4 +46,11 @@ public class PedidoRestController implements PedidoAPI{
         log.info("[finaliza] PedidoRestController - getListaTodosPedidos");
         return detalhaPedidoResponse;
     }
+
+    @Override
+    public void postAdicionaNovoItemPedidoEmPedido(ItemPedidoRequest itemPedidoRequest, UUID idPedido) {
+        log.info("[inicia] PedidoRestController - postAdicionaNovoItemPedidoEmPedido");
+        service.adicionaNovoItemPedidoEmPedido(itemPedidoRequest,idPedido);
+        log.info("[finaliza] PedidoRestController - postAdicionaNovoItemPedidoEmPedido");
+    }
 }
