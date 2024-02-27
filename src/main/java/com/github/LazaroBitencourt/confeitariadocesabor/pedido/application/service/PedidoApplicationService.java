@@ -110,6 +110,14 @@ public class PedidoApplicationService implements PedidoService{
         log.info("[finaliza] PedidoApplicationService - alteraFormaDePagamentoParaDinheiro");
     }
 
+    @Override
+    public void alteraFormaDePagamentoParaCartaoDeCredito(UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - alteraFormaDePagamentoParaCartaoDeCredito");
+        Pedido pedido = repository.buscaPedidoPorId(idPedido);
+        pedido.alteraFormaDePagamentoParaCartaoDeCredito();
+        log.info("[finaliza] PedidoApplicationService - alteraFormaDePagamentoParaCartaoDeCredito");
+    }
+
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
         return itensDePedido.getItensDePedido()
                 .stream()
