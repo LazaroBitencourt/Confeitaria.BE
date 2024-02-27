@@ -3,11 +3,8 @@ package com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.serv
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.application.repository.ClienteRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.cliente.domain.Cliente;
 
-import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.DetalhaPedidoResponse;
-import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.ItemPedidoRequest;
-import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoRequest;
+import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.*;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.ItemPedidoRepositoy;
-import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.api.PedidoIdResponse;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.application.repository.PedidoRepository;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.ItemPedido;
 import com.github.LazaroBitencourt.confeitariadocesabor.pedido.domain.Pedido;
@@ -78,6 +75,15 @@ public class PedidoApplicationService implements PedidoService{
         pedido.removeItemPedido(idItemPedido);
         repository.salva(pedido);
         log.info("[finaliza] PedidoApplicationService - removeItemPedidoDoPedidoPorId");
+    }
+
+    @Override
+    public void alteraDataHoraDeEntregaDoPedidoPorId(DataHoraEntregaRequest dataHoraEntrega, UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - alteraDataHoraDeEntregaDoPedidoPorId");
+        Pedido pedido = repository.buscaPedidoPorId(idPedido);
+        pedido.alteraDataHoraDeEntrega(dataHoraEntrega);
+        repository.salva(pedido);
+        log.info("[finaliza] PedidoApplicationService - alteraDataHoraDeEntregaDoPedidoPorId");
     }
 
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
