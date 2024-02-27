@@ -66,6 +66,6 @@ public class Pedido {
     }
 
     public void alteraDataHoraDeEntrega(DataHoraEntregaRequest dataHoraEntrega) {
-        this.dataHoraParaEntrega = dataHoraEntrega.getDatahoraEntrega();
+        this.dataHoraParaEntrega = dataHoraEntrega.getDataHoraParaEntrega();
     }
 }
