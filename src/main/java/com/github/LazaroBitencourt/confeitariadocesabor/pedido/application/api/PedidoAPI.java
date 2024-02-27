@@ -25,10 +25,16 @@ public interface PedidoAPI {
     @ResponseStatus(HttpStatus.OK)
     public List<DetalhaPedidoResponse> getListaTodosPedidos();
 
-    @PostMapping("/novo-item-pedido/{id}")
+    @PatchMapping("/novo-item-pedido/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void postAdicionaNovoItemPedidoEmPedido (
             @RequestBody @Valid ItemPedidoRequest itemPedidoRequest,
             @PathVariable("id") UUID idPedido);
+
+    @PatchMapping("/{idPedido}/remove-item-pedido/{idItemPedido}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void pacthRemoveItemPedidoDoPedidoPorId(
+            @PathVariable("idItemPedido")UUID idItemPedido,
+            @PathVariable("idPedido")UUID idPedido);
 
 }
