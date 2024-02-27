@@ -71,6 +71,15 @@ public class PedidoApplicationService implements PedidoService{
         log.info("[finaliza] PedidoApplicationService - adicionaNovoItemPedidoEmPedido");
     }
 
+    @Override
+    public void removeItemPedidoDoPedidoPorId(Long idItemPedido, UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - removeItemPedidoDoPedidoPorId");
+        Pedido pedido = repository.buscaPedidoPorId(idPedido);
+        pedido.removeItemPedido(idItemPedido);
+        repository.salva(pedido);
+        log.info("[finaliza] PedidoApplicationService - removeItemPedidoDoPedidoPorId");
+    }
+
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
         return itensDePedido.getItensDePedido()
                 .stream()
