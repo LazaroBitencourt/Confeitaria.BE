@@ -42,10 +42,19 @@ public class PedidoJpaRepository implements PedidoRepository {
     }
 
     @Override
+    public List<Pedido> buscaPedidosDoClientePorIdCliente(UUID idCliente) {
+        log.info("[inicia] PedidoJpaRepository - buscaPedidosDoClientePorIdCliente");
+        List<Pedido> listaDePedidos = jpaRepository.findAllOrderByIdClient(idCliente);
+        log.info("[finaliza] PedidoJpaRepository - buscaPedidosDoClientePorIdCliente");
+        return listaDePedidos;
+    }
+
+    @Override
     public List<Pedido> buscaTodosPedidos() {
         log.info("[inicia] PedidoJpaRepository - buscaTodosPedidos");
         List<Pedido> listaDePedidos = jpaRepository.findAll();
         log.info("[finaliza] PedidoJpaRepository - buscaTodosPedidos");
         return listaDePedidos;
     }
+
 }
