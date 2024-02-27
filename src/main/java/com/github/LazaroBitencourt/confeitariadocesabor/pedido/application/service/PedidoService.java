@@ -19,5 +19,5 @@ public interface PedidoService {
 
     void adicionaNovoItemPedidoEmPedido(ItemPedidoRequest itemPedidoRequest, UUID idPedido);
 
-    void removeItemPedidoDoPedidoPorId(UUID idItemPedido, UUID idItemPedido1);
+    void removeItemPedidoDoPedidoPorId(Long idItemPedido, UUID idPedido);
 }
