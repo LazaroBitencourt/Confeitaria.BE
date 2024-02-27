@@ -41,4 +41,8 @@ public interface PedidoAPI {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void pacthAlteraDataHoraDeEntregaDoPedidoPorId(
             @RequestBody @Valid DataHoraEntregaRequest dataHoraEntrega, @PathVariable("id") UUID idPedido);
+
+    @PostMapping("/{id}/retira-na-loja")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void postAlteraFormaDeEntregaParaRetiraNaLoja (@PathVariable("id") UUID idPedido);
 }

@@ -68,4 +68,8 @@ public class Pedido {
     public void alteraDataHoraDeEntrega(DataHoraEntregaRequest dataHoraEntrega) {
         this.dataHoraParaEntrega = dataHoraEntrega.getDataHoraParaEntrega();
     }
+
+    public void alteraFormaDeEntregaParaRetiraNaLoja() {
+        this.formaDeEntrega = TipoDeEntrega.RETIRA_NA_LOJA;
+    }
 }

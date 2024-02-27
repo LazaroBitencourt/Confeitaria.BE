@@ -86,6 +86,14 @@ public class PedidoApplicationService implements PedidoService{
         log.info("[finaliza] PedidoApplicationService - alteraDataHoraDeEntregaDoPedidoPorId");
     }
 
+    @Override
+    public void alteraFormaDeEntregaParaRetiraNaLoja(UUID idPedido) {
+        log.info("[inicia] PedidoApplicationService - alteraFormaDeEntregaParaRetiraNaLoja");
+        Pedido pedido = repository.buscaPedidoPorId(idPedido);
+        pedido.alteraFormaDeEntregaParaRetiraNaLoja();
+        log.info("[finaliza] PedidoApplicationService - alteraFormaDeEntregaParaRetiraNaLoja");
+    }
+
     private List<ItemPedido> cadastraItensPedido(PedidoRequest itensDePedido) {
         return itensDePedido.getItensDePedido()
                 .stream()

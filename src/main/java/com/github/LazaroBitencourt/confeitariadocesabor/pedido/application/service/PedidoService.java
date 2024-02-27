@@ -19,4 +19,6 @@ public interface PedidoService {
     void removeItemPedidoDoPedidoPorId(Long idItemPedido, UUID idPedido);
 
     void alteraDataHoraDeEntregaDoPedidoPorId(DataHoraEntregaRequest dataHoraEntrega, UUID idPedido);
+
+    void alteraFormaDeEntregaParaRetiraNaLoja(UUID idPedido);
 }
