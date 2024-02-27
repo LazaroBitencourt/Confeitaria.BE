@@ -55,4 +55,7 @@ public class Pedido {
                 .sum();
     }
 
+    public void adicionaNovoItemPedido(ItemPedido itemPedido) {
+        itensDePedido.add(itemPedido);
+    }
 }
