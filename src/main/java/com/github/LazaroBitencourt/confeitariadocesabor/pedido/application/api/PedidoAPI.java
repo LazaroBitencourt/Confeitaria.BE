@@ -57,4 +57,8 @@ public interface PedidoAPI {
     @PostMapping("/{id}/cartao-de-credito")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void postAlteraFormaDePagamentoParaCartaoDeCredito (@PathVariable("id") UUID idPedido);
+
+    @PostMapping("/{id}/cartao-de-debito")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void postAlteraFormaDePagamentoParaCartaoDeDebito (@PathVariable("id") UUID idPedido);
 }
