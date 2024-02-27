@@ -58,4 +58,8 @@ public class Pedido {
     public void adicionaNovoItemPedido(ItemPedido itemPedido) {
         itensDePedido.add(itemPedido);
     }
+
+    public void removeItemPedido(Long idItemPedido) {
+        itensDePedido.removeIf(itemPedido -> itemPedido.getIdItemPedido().equals(idItemPedido));
+    }
 }
