@@ -68,4 +68,11 @@ public class PedidoRestController implements PedidoAPI{
         log.info("[finaliza] PedidoRestController - pacthAlteraDataHoraDeEntregaDoPedidoPorId");
     }
 
+    @Override
+    public void postAlteraFormaDeEntregaParaRetiraNaLoja(UUID idPedido) {
+        log.info("[inicia] PedidoRestController - postAlteraFormaDeEntregaParaRetiraNaLoja");
+        service.alteraFormaDeEntregaParaRetiraNaLoja(idPedido);
+        log.info("[finaliza] PedidoRestController - postAlteraFormaDeEntregaParaRetiraNaLoja");
+    }
+
 }
